@@ -1,0 +1,13 @@
+//===== Hercules Script ======================================
+//= Customs
+
+//==================================================
+// bra_fild01 - Brasilis Field
+//==================================================
+bra_fild01,0,0,0,0	monster	Curupira	2074,50,0,0,0
+bra_fild01,0,0,0,0	monster	Dokebi	1110,10,0,0,0
+bra_fild01,0,0,0,0	monster	Savage	1166,5,0,0,0
+bra_fild01,0,0,0,0	monster	Headless Mule	2071,40,0,0,0
+bra_fild01,0,0,0,0	monster	Red Mushroom	1085,5,0,0,0
+bra_fild01,0,0,0,0	monster	Jaguar	2072,55,0,0,0
+bra_fild01,0,0,0,0	monster	Toucan	2073,60,0,0,0
