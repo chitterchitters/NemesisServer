@@ -1,2 +1,2 @@
-Nemesis - Hercules Clone
+Nemesis
 ========

@@ -29,10 +29,10 @@ prontera,153,193,6	script	Job Master	2_F_MAGICMASTER,{
 		    +" before proceeding.";
 		close;
 	}
-	if (.skill_point_check && SkillPoint > 0) {
-		mes "Please use all your skill points before proceeding.";
-		close;
-	}
+//	if (.skill_point_check && SkillPoint > 0) {
+//		mes "Please use all your skill points before proceeding.";
+//		close;
+//	}
 
 	.@eac = eaclass();
 	.@base = .third_classes ? roclass(.@eac&EAJ_UPPERMASK) : Class;

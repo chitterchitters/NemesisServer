@@ -1,6 +1,6 @@
 // Copyright (c) Hercules Dev Team, licensed under GNU GPL.
 // See the LICENSE file
-// Portions Copyright (c) Athena Dev Teams
+// Portions Copyright (c) Athena Dev Teams 
 
 #ifndef CONFIG_CONSTANTS_H
 #define CONFIG_CONSTANTS_H

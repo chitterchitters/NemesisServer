@@ -5,7 +5,7 @@
 #define CONFIG_CORE_H
 
 /// Max number of items on @autolootid list
-#define AUTOLOOTITEM_SIZE 10
+#define AUTOLOOTITEM_SIZE 50
 
 /// The maximum number of atcommand suggestions
 #define MAX_SUGGESTIONS 10
@@ -14,7 +14,7 @@
 /// The official walkpath disables users from taking non-clear walk paths,
 /// e.g. if they want to get around an obstacle they have to walk around it,
 /// while with OFFICIAL_WALKPATH disabled if they click to walk around a obstacle the server will do it automatically
-#define OFFICIAL_WALKPATH
+//#define OFFICIAL_WALKPATH
 
 /// leave this line uncommented to enable callfunc checks when processing scripts.
 /// while allowed, the script engine will attempt to match user-defined functions
@@ -28,7 +28,7 @@
 /// Disabling it saves one thread.
 #define CONSOLE_INPUT
 /// Maximum number of characters 'CONSOLE_INPUT' will support per line.
-#define MAX_CONSOLE_INPUT 150
+#define MAX_CONSOLE_INPUT 300
 
 /// Uncomment to disable Hercules' anonymous stat report
 /// We kindly ask you to consider keeping it enabled, it helps us improve Hercules.
@@ -45,7 +45,7 @@
 /// Client-sided range checks are, however, are always circular.
 /// Enabling this changes all checks to circular checks, which is more realistic,
 /// - but is not the official behaviour.
-//#define CIRCULAR_AREA
+#define CIRCULAR_AREA
 
 //This is the distance at which @autoloot works,
 //if the item drops farther from the player than this,
