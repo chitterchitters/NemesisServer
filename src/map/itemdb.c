@@ -581,13 +581,6 @@ int itemdb_isrestricted(struct item* item, int gmlv, int gmlv2, int (*func)(stru
  * Specifies if item-type should drop unidentified.
  *------------------------------------------*/
 int itemdb_isidentified(int nameid) {
-	int type=itemdb_type(nameid);
-	switch (type) {
-		case IT_WEAPON:
-		case IT_ARMOR:
-		case IT_PETARMOR:
-			return 0;
-		default:
 			return 1;
 	}
 }
