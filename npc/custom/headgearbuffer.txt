@@ -334,27 +334,27 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 			
 			else { //If the Lower Headgear already has a modification in the selected slot
 				//Determine Modification Type and Level
-				if (getequipcardid(@slotselected) >= 4700 && getequipcardid(@slotselected) <= 4709) { // STR
+				if (getequipcardid(10,@slotselected) >= 4700 && getequipcardid(10,@slotselected) <= 4709) { // STR
 					@modlevel = getequipcardid(@slotselected) - 4700 + 1;
 					goto LowerSTRUpgrade;
 				}
-				if (getequipcardid(@slotselected) >= 4710 && getequipcardid(@slotselected) <= 4719) { //INT
+				if (getequipcardid(10,@slotselected) >= 4710 && getequipcardid(10,@slotselected) <= 4719) { //INT
 					@modlevel = getequipcardid(@slotselected) - 4710 + 1;
 					goto LowerINTUpgrade;
 				}
-				if (getequipcardid(@slotselected) >= 7120 && getequipcardid(@slotselected) <= 4729) { //DEX
+				if (getequipcardid(10,@slotselected) >= 7120 && getequipcardid(10,@slotselected) <= 4729) { //DEX
 					@modlevel = getequipcardid(@slotselected) - 4720 + 1;
 					goto LowerDEXUpgrade;
 				}
-				if (getequipcardid(@slotselected) >= 4730 && getequipcardid(@slotselected) <= 4739) { //AGI
+				if (getequipcardid(10,@slotselected) >= 4730 && getequipcardid(10,@slotselected) <= 4739) { //AGI
 					@modlevel = getequipcardid(@slotselected) - 4730 + 1;
 					goto LowerAGIUpgrade;
 				}
-				if (getequipcardid(@slotselected) >= 4740 && getequipcardid(@slotselected) <= 4749) { //VIT
+				if (getequipcardid(10,@slotselected) >= 4740 && getequipcardid(10,@slotselected) <= 4749) { //VIT
 					@modlevel = getequipcardid(@slotselected) - 4740 + 1;
 					goto LowerVITUpgrade;
 				}
-				if (getequipcardid(@slotselected) >= 4750 && getequipcardid(@slotselected) <= 4759) { //LUK
+				if (getequipcardid(10,@slotselected) >= 4750 && getequipcardid(10,@slotselected) <= 4759) { //LUK
 					@modlevel = getequipcardid(@slotselected) - 4750 + 1;
 					goto LowerLUKUpgrade;
 				}
