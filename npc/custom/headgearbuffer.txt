@@ -115,7 +115,7 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 							goto VITGain1;
 						}
 					case 4: //INT
-						if ((getequipcardid(10,@sns1) >= 4710 && getequipcardid(10,@sns1) <= 4719) || (getequipcardid(10,@sns2) >= 4710 && getequipcardid(10,@sns2) <= 4719) || (getequipcardid(10,@sns3) >= 4740 && getequipcardid(10,@sns3) <= 4719)) {  //Checks to see if another slot already has this kind of modification
+						if ((getequipcardid(10,@sns1) >= 4710 && getequipcardid(10,@sns1) <= 4719) || (getequipcardid(10,@sns2) >= 4710 && getequipcardid(10,@sns2) <= 4719) || (getequipcardid(10,@sns3) >= 4710 && getequipcardid(10,@sns3) <= 4719)) {  //Checks to see if another slot already has this kind of modification
 							goto modifieralreadyexists;
 						}
 						else {
@@ -158,18 +158,18 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 						switch (@slotselected+1) {
 							case 1:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4700, @card1, @card2, @card3;
-								break;
+								goto finished;
 							case 2:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4700, @card2, @card3;
-								break;
+								goto finished;
 							case 3:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4700, @card3;
-								break;
+								goto finished;
 							case 4:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4700;
-								break;
+								goto finished;
 						}
-						goto finished;
+					
 					case 2:
 						close;
 				}
@@ -195,18 +195,18 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 						switch (@slotselected+1) {
 							case 1:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4730, @card1, @card2, @card3;
-								break;
+								goto finished;
 							case 2:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4730, @card2, @card3;
-								break;
+								goto finished;
 							case 3:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4730, @card3;
-								break;
+								goto finished;
 							case 4:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4730;
-								break;
+								goto finished;
 						}
-						goto finished;
+						
 					case 2:
 						close;
 				}
@@ -232,18 +232,18 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 						switch (@slotselected+1) {
 							case 1:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4740, @card1, @card2, @card3;
-								break;				
+								goto finished;	
 							case 2:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4740, @card2, @card3;
-								break;
+								goto finished;
 							case 3:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4740, @card3;
-								break;
+								goto finished;
 							case 4:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4740;
-								break;
+								goto finished;
 						}
-						goto finished;
+						
 					case 2:
 						close;
 				}
@@ -269,18 +269,18 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 						switch (@slotselected+1) {
 							case 1:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4710, @card1, @card2, @card3;
-								break;
+								goto finished;
 							case 2:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4710, @card2, @card3;
-								break;
+								goto finished;
 							case 3:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4710, @card3;
-								break;
+								goto finished;
 							case 4:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4710;
-								break;
+								goto finished;
 						}
-						goto finished;
+						
 					case 2:
 						close;
 				}
@@ -306,16 +306,16 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 						switch (@slotselected+1) {
 							case 1:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4720, @card1, @card2, @card3;
-								break;
+								goto finished;
 							case 2:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4720, @card2, @card3;
-								break;
+								goto finished;
 							case 3:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4720, @card3;
-								break;
+								goto finished;
 							case 4:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4720;
-								break;
+								goto finished;
 						}
 						goto finished;
 					case 2:
@@ -343,18 +343,18 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 						switch (@slotselected+1) {
 							case 1:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4750, @card1, @card2, @card3;
-								break;
+								goto finished;
 							case 2:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4750, @card2, @card3;
-								break;
+								goto finished;
 							case 3:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4750, @card3;
-								break;
+								goto finished;
 							case 4:
 								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4750;
-								break;
+								goto finished;
 						}
-						goto finished;
+					
 					case 2:
 						close;
 				}
@@ -370,7 +370,7 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 					@modlevel = getequipcardid(10,@slotselected) - 4710 + 1;
 					goto LowerINTUpgrade;
 				}
-				if (getequipcardid(10,@slotselected) >= 7120 && getequipcardid(10,@slotselected) <= 4729) { //DEX
+				if (getequipcardid(10,@slotselected) >= 4720 && getequipcardid(10,@slotselected) <= 4729) { //DEX
 					@modlevel = getequipcardid(10,@slotselected) - 4720 + 1;
 					goto LowerDEXUpgrade;
 				}
@@ -501,6 +501,7 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 						close;
 				}
 			}
+			
 			
 			LowerSTATUpgrade:
 			delequip 10;
