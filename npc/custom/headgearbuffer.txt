@@ -506,5 +506,4 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 		mes "If not, then it sucks to be you.";
 		close;
 	}
-}
 	
