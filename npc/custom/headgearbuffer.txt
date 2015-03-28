@@ -330,6 +330,7 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 					case 2:
 						close;
 				}
+			}
 			
 			else { //If the Lower Headgear already has a modification in the selected slot
 				//Determine Modification Type and Level
