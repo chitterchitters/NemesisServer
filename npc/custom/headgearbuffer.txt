@@ -62,21 +62,25 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 					@sns1 = 1;
 					@sns2 = 2;
 					@sns3 = 3;
+					break;
 				case 2:
 					@slotselected = 1;
 					@sns1 = 0;
 					@sns2 = 1;
 					@sns3 = 2;
+					break;
 				case 3:
 					@slotselected = 2;
 					@sns1 = 0;
 					@sns2 = 1;
 					@sns3 = 3;
+					break;
 				case 4:
 					@slotselected = 3;
 					@sns1 = 0;
 					@sns2 = 1;
 					@sns3 = 2;
+					break;
 			}	
 			if (getitemslots(getequipid(10)) > 0 && @slotselected == 0) {  //Checks to see if the item has card slots when choosing Slot 0 (The first card slot) (Helmets either have 0 or 1 card slot, not supported to check specific amounts of slots or positions)  This will only check the first slot where a slot would be.
 				mes "[Fallen Angel]";
