@@ -55,7 +55,7 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 		
 	
 			mes "[Fallen Angel]";
-			mes "Which slot would you like to upgrade?"
+			mes "Which slot would you like to upgrade?";
 			switch(select("Slot 0 - "+getitemname(@card0)+":Slot 1 - "+getitemname(@card1)+":Slot 2 - "+getitemname(@card2)+":Slot 3 - "+getitemname(@card3))) { //Sets which slot is being worked on and whish is not for the section below
 				case 1:
 					@slotselected = 0;
