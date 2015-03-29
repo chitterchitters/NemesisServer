@@ -3,23 +3,367 @@
 //===== By: ==================================================
 //= Darkwolf7786
 //===== Current Version: =====================================
-//= 0.1 Alpha Test
+//= 0.2 Alpha Test
 //===== Description: =========================================
 //= Upgrades Lower, Middle, and Upper Headgears with Bonus Stats
 //===== Additional Comments: =================================
+//= 0.2 Cleaned up all sorts of stuff.
 //= 0.1 Initial script.  Supports only Lower Headgears upgrading Stats from 1 to 3.
 //============================================================
 
-
-
 prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
+
+function modifieralreadyexists; function finished; function generateitem; function isstatmaxedout; function notenoughzeny;
+function getSTRupgrade; function getAGIupgrade; function getVITupgrade; function getINTupgrade; function getDEXupgrade; function getLUKupgrade;
+
+function modifieralreadyexists {
+		mes "[Fallen Angel]";
+		mes "This item already has that type of upgrade and cannot be selected.";
+		close;
+		end;
+}
+
+function finished {
+		mes "[Fallen Angel]";
+		mes "Hopefully if everything went well";
+		mes "Your item should be ready and in your inventory";
+		mes "";
+		mes "If not, then it sucks to be you.";
+		close;
+		end;
+}
+
+function generateitem {
+		//generateitem(0 - SelectedSlot, 1 - SelectedSlotValue, 2 - Item ID, 3 - Refine Rate, 4 - Card 0, 5 - Card 1, 6 - Card 2, 7 - Card 3);
+		select(getarg(0)){
+			case 0:
+				getitem2 getarg(2), 1, 1, getarg(3), 0, getarg(1), getarg(5), getarg(6), getarg(7);
+				break;
+			case 1:
+				getitem2 getarg(2), 1, 1, getarg(3), 0, getarg(4), getarg(1), getarg(6), getarg(7);
+				break;
+			case 2:
+				getitem2 getarg(2), 1, 1, getarg(3), 0, getarg(4), getarg(5), getarg(1), getarg(7);
+				break;
+			case 3:
+				getitem2 getarg(2), 1, 1, getarg(3), 0, getarg(4), getarg(5), getarg(6), getarg(1);
+				break;
+		}
+		specialeffect2 EF_REPAIRWEAPON;
+		return;
+}
+
+function isstatmaxedout {
+		//statmaxedout (@modlevel, maximum level, Stat Descriptive Name) //Stat will be any string variable;
+		if (getarg(0) >= getarg(1)) { //This determines the max mod level.  Will set at 3 for testing, Max is up to 10.
+				mes "[Fallen Angel]";
+				mes "This item already has the highest level of "+getarg(2)+" and cannot upgrade further.";
+				close;
+		}
+		return;
+}
+
+function notenoughzeny {
+		mes "[Fallen Angel]";
+		mes "You do not have enough Zeny for this upgrade!";
+		close;
+}
+
+function getSTRupgrade {
+		//getSTRupgrade (Upgrade Level)
+		mes "[Fallen Angel]";
+		mes "Current Mod: Strength";
+		select (getarg(0)) {
+			case 0:
+				mes "This option will add a modifier that increases Strength and has 10 levels";
+				mes "Lv 1  - +1 Strength";
+				mes "Lv 2  - +2 Strength";
+				mes "Lv 3  - +3 Strength";
+				mes "Lv 4  - +4 Strength";
+				mes "Lv 5  - +5 Strength";
+				mes "Lv 6  - +6 Strength";
+				mes "Lv 7  - +7 Strength";
+				mes "Lv 8  - +8 Strength";
+				mes "Lv 9  - +9 Strength";
+				mes "Lv 10 - +10 Strength";
+				break;
+			case 1
+				mes "Current Level: 1";
+				mes "   STR+1";
+				mes "";
+				mes "Next Level: 2";
+				mes "   STR+2";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   None";
+				break;
+			case 2
+				mes "Current Level: 2";
+				mes "   STR+2";
+				mes "";
+				mes "Next Level: 3";
+				mes "   STR+3";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000 Zeny";
+				break;
+		}
+		mes "";
+		mes "Would you like to continue with this modification?";
+				switch(select("Yes:No")) {
+					case 1:
+						return 1;
+					case 2:
+						return 0;
+				}
+}
+
+function getAGIupgrade {
+		//getAGIupgrade (Upgrade Level)
+		mes "[Fallen Angel]";
+		mes "Current Mod: Agility";
+		select (getarg(0)) {
+			case 0
+				mes "This option will add a modifier that increases Agility and has 10 levels.";
+				mes "Lv 1  - +1 AGI";
+				mes "Lv 2  - +2 AGI";
+				mes "Lv 3  - +3 AGI";
+				mes "Lv 4  - +4 AGI";
+				mes "Lv 5  - +5 AGI";
+				mes "Lv 6  - +6 AGI";
+				mes "Lv 7  - +7 AGI";
+				mes "Lv 8  - +8 AGI";
+				mes "Lv 9  - +9 AGI";
+				mes "Lv 10 - +10 AGI";
+			case 1
+				mes "Current Level: 1";
+				mes "   AGI+1";
+				mes "";
+				mes "Next Level: 2";
+				mes "   AGI+2";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   None";
+				break;
+			case 2
+				mes "Current Level: 2";
+				mes "   AGI+2";
+				mes "";
+				mes "Next Level: 3";
+				mes "   AGI+3";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000 Zeny";
+				break;
+		}
+		mes "";
+		mes "Would you like to upgrade now?";
+				switch(select("Yes:No")) {
+					case 1:
+						return 1;
+					case 2:
+						return 0;
+				}
+}
+
+function getVITupgrade {
+		//getVITupgrade (Upgrade Level)
+		mes "[Fallen Angel]";
+		mes "Current Mod: Vitality";
+		select (getarg(0)) {
+			case 0
+				mes "This option will add a modifier that increases Vitality and has 10 levels.";
+				mes "Lv 1  - +1 VIT";
+				mes "Lv 2  - +2 VIT";
+				mes "Lv 3  - +3 VIT";
+				mes "Lv 4  - +4 VIT";
+				mes "Lv 5  - +5 VIT";
+				mes "Lv 6  - +6 VIT";
+				mes "Lv 7  - +7 VIT";
+				mes "Lv 8  - +8 VIT";
+				mes "Lv 9  - +9 VIT";
+				mes "Lv 10 - +10 VIT";
+			case 1
+				mes "Current Level: 1";
+				mes "   VIT+1";
+				mes "";
+				mes "Next Level: 2";
+				mes "   VIT+2";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   None";
+				break;
+			case 2
+				mes "Current Level: 2";
+				mes "   VIT+2";
+				mes "";
+				mes "Next Level: 3";
+				mes "   VIT+3";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000 Zeny";
+				break;
+		}
+		mes "";
+		mes "Would you like to upgrade now?";
+				switch(select("Yes:No")) {
+					case 1:
+						return 1;
+					case 2:
+						return 0;
+				}
+}
+
+function getINTupgrade {
+		//getINTupgrade (Upgrade Level)
+		mes "[Fallen Angel]";
+		mes "Current Mod: Intelligence";
+		select (getarg(0)) {
+			case 0
+				mes "This option will add a modifier that increases Intelligence and has 10 levels.";
+				mes "Lv 1  - +1 INT";
+				mes "Lv 2  - +2 INT";
+				mes "Lv 3  - +3 INT";
+				mes "Lv 4  - +4 INT";
+				mes "Lv 5  - +5 INT";
+				mes "Lv 6  - +6 INT";
+				mes "Lv 7  - +7 INT";
+				mes "Lv 8  - +8 INT";
+				mes "Lv 9  - +9 INT";
+				mes "Lv 10 - +10 INT";
+			case 1
+				mes "Current Level: 1";
+				mes "   INT+1";
+				mes "";
+				mes "Next Level: 2";
+				mes "   INT+2";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   None";
+				break;
+			case 2
+				mes "Current Level: 2";
+				mes "   INT+2";
+				mes "";
+				mes "Next Level: 3";
+				mes "   INT+3";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000 Zeny";
+				break;
+		}
+		mes "";
+		mes "Would you like to upgrade now?";
+				switch(select("Yes:No")) {
+					case 1:
+						return 1;
+					case 2:
+						return 0;
+				}
+}
+
+function getDEXupgrade {
+		//getDEXupgrade (Upgrade Level)
+		mes "[Fallen Angel]";
+		mes "Current Mod: Dexterity";
+		select (getarg(0)) {
+			case 0
+				mes "This option will add a modifier that increases Dexterity and has 10 levels.";
+				mes "Lv 1  - +1 DEX";
+				mes "Lv 2  - +2 DEX";
+				mes "Lv 3  - +3 DEX";
+				mes "Lv 4  - +4 DEX";
+				mes "Lv 5  - +5 DEX";
+				mes "Lv 6  - +6 DEX";
+				mes "Lv 7  - +7 DEX";
+				mes "Lv 8  - +8 DEX";
+				mes "Lv 9  - +9 DEX";
+				mes "Lv 10 - +10 DEX";
+			case 1
+				mes "Current Level: 1";
+				mes "   DEX+1";
+				mes "";
+				mes "Next Level: 2";
+				mes "   DEX+2";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   None";
+				break;
+			case 2
+				mes "Current Level: 2";
+				mes "   DEX+2";
+				mes "";
+				mes "Next Level: 3";
+				mes "   DEX+3";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000 Zeny";
+				break;
+		}
+		mes "";
+		mes "Would you like to upgrade now?";
+				switch(select("Yes:No")) {
+					case 1:
+						return 1;
+					case 2:
+						return 0;
+				}
+}
+
+function getLUKupgrade {
+		//getLUKupgrade (Upgrade Level)
+		mes "[Fallen Angel]";
+		mes "Current Mod: Luck";
+		select (getarg(0)) {
+			case 0
+				mes "This option will add a modifier that increases Luck and has 10 levels.";
+				mes "Lv 1  - +1 LUK";
+				mes "Lv 2  - +2 LUK";
+				mes "Lv 3  - +3 LUK";
+				mes "Lv 4  - +4 LUK";
+				mes "Lv 5  - +5 LUK";
+				mes "Lv 6  - +6 LUK";
+				mes "Lv 7  - +7 LUK";
+				mes "Lv 8  - +8 LUK";
+				mes "Lv 9  - +9 LUK";
+				mes "Lv 10 - +10 LUK";
+			case 1
+				mes "Current Level: 1";
+				mes "   LUK+1";
+				mes "";
+				mes "Next Level: 2";
+				mes "   LUK+2";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   None";
+				break;
+			case 2
+				mes "Current Level: 2";
+				mes "   LUK+2";
+				mes "";
+				mes "Next Level: 3";
+				mes "   LUK+3";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000 Zeny";
+				break;
+		}
+		mes "";
+		mes "Would you like to upgrade now?";
+				switch(select("Yes:No")) {
+					case 1:
+						return 1;
+					case 2:
+						return 0;
+				}
+}
 	disable_items;
 	
-	if (checkweight(1201,1) == 0) {
+	if (checkweight(1201,1) == 0) {  //Checks to see if you have too many items
 		mes "You are carrying too many items, please reduce them and come back!";
 		close;
 	}
-	if (MaxWeight - Weight < 10000) {
+	if (MaxWeight - Weight < 10000) { //Checks to see if you are overweight (1000 weight remaining)
 		mes "You have overweight, please reduce it and come back!";
 		close;
 	}
@@ -30,7 +374,7 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 	mes "Gonna try and put stuff in your headgear to make it better.";
 	mes "You cannot place the same bonus in multiple slots.";
 	next;
-	switch(select("Enchant Upper Headgear:Enchant Middle Headgear:Enchant Lower Headgear")) {
+	switch(select("Enchant Upper Headgear:Enchant Middle Headgear:Enchant Lower Headgear")) {  //Initial Menu, Chooses which headgear slot to modify
 		case 1:
 			mes "[Fallen Angel]";
 			mes "This option is not ready yet.";
@@ -40,7 +384,7 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 			mes "This option is not ready yet.";
 			close;
 		case 3:
-			if (getequipisequiped(10) == 0) {
+			if (getequipisequiped(10) == 0) {  // If you are not equipped with an item in the lower headgear slot.
 				mes "[Fallen Angel]";
 				mes "You are not equipped with a Lower headgear.  Please equip one and try again.";
 				close;
@@ -56,7 +400,7 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 	
 			mes "[Fallen Angel]";
 			mes "Which slot would you like to upgrade?";
-			switch(select("Slot 0 - "+getitemname(@card0)+":Slot 1 - "+getitemname(@card1)+":Slot 2 - "+getitemname(@card2)+":Slot 3 - "+getitemname(@card3))) { //Sets which slot is being worked on and whish is not for the section below
+			switch(select("Slot 0 - "+getitemname(@card0)+":Slot 1 - "+getitemname(@card1)+":Slot 2 - "+getitemname(@card2)+":Slot 3 - "+getitemname(@card3))) { //Sets which slot is being worked on and which is not for the section below
 				case 1:
 					@slotselected = 0;
 					@sns1 = 1;
@@ -88,455 +432,257 @@ prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
 				close;
 			}
 				
-			if (getequipcardid(10,@slotselected) == 0) { //If the slot is empty, allows you to initiate a new craft
+			if (getequipcardid(10,@slotselected) == 0) { //If the slot is empty, allows you to initiate a new craft  *The IF section here is for an empty new slot only.  The ELSE section will check what the slot is and ask to upgrade that slot.
 				mes "[Fallen Angel]";
 				mes "The following modifications are allowed for Lower headgears.";
 				mes "Which Modification would you like to add in this slot?";
-				switch(select("STR:AGI:VIT:INT:DEX:LUK")) {
+				
+				switch(select("STR:INT:DEX:AGI:VIT:LUK")) {  //These check to see if the socket is within the itemID range of the select modifiers, then explains the modifier, asks the player if they want it, then gives it to them if they do.
 					case 1: //STR
 						if ((getequipcardid(10,@sns1) >= 4700 && getequipcardid(10,@sns1) <= 4709) || (getequipcardid(10,@sns2) >= 4700 && getequipcardid(10,@sns2) <= 4709) || (getequipcardid(10,@sns3) >= 4700 && getequipcardid(10,@sns3) <= 4709)) {  //Checks to see if another slot already has this kind of modification
-							goto modifieralreadyexists;
+							modifieralreadyexists;
 						}
-						else {
-							goto STRGain1;
+						
+						if (getSTRupgrade(0)) {
+							generateitem(@slotselected,4700,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3);
+							finished;
 						}
+						close;
+						break;
+						
+					case 2: //INT
+						if ((getequipcardid(10,@sns1) >= 4710 && getequipcardid(10,@sns1) <= 4719) || (getequipcardid(10,@sns2) >= 4710 && getequipcardid(10,@sns2) <= 4719) || (getequipcardid(10,@sns3) >= 4710 && getequipcardid(10,@sns3) <= 4719)) {  //Checks to see if another slot already has this kind of modification
+							modifieralreadyexists;
+						}
+						
+						if (getINTupgrade(0)) {
+							generateitem(@slotselected,4710,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3);
+							finished;
+						}
+						close;
+						break;
+
+					case 3: //DEX
+						if ((getequipcardid(10,@sns1) >= 4720 && getequipcardid(10,@sns1) <= 4729) || (getequipcardid(10,@sns2) >= 4720 && getequipcardid(10,@sns2) <= 4729) || (getequipcardid(10,@sns3) >= 4720 && getequipcardid(10,@sns3) <= 4729)) {  //Checks to see if another slot already has this kind of modification
+							modifieralreadyexists;
+						}
+						
+						if (getDEXupgrade(0)) {
+							generateitem(@slotselected,4720,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3);
+							finished;
+						}
+						close;
+						break;
+						
 					case 2: //AGI
 						if ((getequipcardid(10,@sns1) >= 4730 && getequipcardid(10,@sns1) <= 4739) || (getequipcardid(10,@sns2) >= 4730 && getequipcardid(10,@sns2) <= 4739) || (getequipcardid(10,@sns3) >= 4730 && getequipcardid(10,@sns3) <= 4739)) {  //Checks to see if another slot already has this kind of modification
-							goto modifieralreadyexists;
+							modifieralreadyexists;
 						}
-						else {
-							goto AGIGain1;
+						
+						if (getAGIupgrade(0)) {
+							generateitem(@slotselected,4730,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3);
+							finished;
 						}
+						close;
+						break;
+						
 					case 3: //VIT
 						if ((getequipcardid(10,@sns1) >= 4740 && getequipcardid(10,@sns1) <= 4749) || (getequipcardid(10,@sns2) >= 4740 && getequipcardid(10,@sns2) <= 4749) || (getequipcardid(10,@sns3) >= 4740 && getequipcardid(10,@sns3) <= 4749)) {  //Checks to see if another slot already has this kind of modification
-							goto modifieralreadyexists;
+							modifieralreadyexists;
 						}
-						else {
-							goto VITGain1;
+						
+						if (getVITupgrade(0)) {
+							generateitem(@slotselected,4740,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3);
+							finished;
 						}
-					case 4: //INT
-						if ((getequipcardid(10,@sns1) >= 4710 && getequipcardid(10,@sns1) <= 4719) || (getequipcardid(10,@sns2) >= 4710 && getequipcardid(10,@sns2) <= 4719) || (getequipcardid(10,@sns3) >= 4710 && getequipcardid(10,@sns3) <= 4719)) {  //Checks to see if another slot already has this kind of modification
-							goto modifieralreadyexists;
-						}
-						else {
-							goto INTGain1;
-						}
-					case 5: //DEX
-						if ((getequipcardid(10,@sns1) >= 4720 && getequipcardid(10,@sns1) <= 4729) || (getequipcardid(10,@sns2) >= 4720 && getequipcardid(10,@sns2) <= 4729) || (getequipcardid(10,@sns3) >= 4720 && getequipcardid(10,@sns3) <= 4729)) {  //Checks to see if another slot already has this kind of modification
-							goto modifieralreadyexists;
-						}
-						else {
-							goto DEXGain1;
-						}
+						close;
+						break;
+
 					case 6: //LUK
 						if ((getequipcardid(10,@sns1) >= 4750 && getequipcardid(10,@sns1) <= 4759) || (getequipcardid(10,@sns2) >= 4750 && getequipcardid(10,@sns2) <= 4759) || (getequipcardid(10,@sns3) >= 4750 && getequipcardid(10,@sns3) <= 4759)) {  //Checks to see if another slot already has this kind of modification
-							goto modifieralreadyexists;
-						}
-						else {
-							goto LUKGain1;
-						}
-				}
-				
-				STRGain1: //Used to explain the upgrade levels and assign its first level if accepted
-				mes "[Fallen Angel]";
-				mes "This option will add a modifier that increases Strength and has 10 levels";
-				mes "Lv 1  - +1 Strength";
-				mes "Lv 2  - +2 Strength";
-				mes "Lv 3  - +3 Strength";
-				mes "Lv 4  - +4 Strength";
-				mes "Lv 5  - +5 Strength";
-				mes "Lv 6  - +6 Strength";
-				mes "Lv 7  - +7 Strength";
-				mes "Lv 8  - +8 Strength";
-				mes "Lv 9  - +9 Strength";
-				mes "Lv 10 - +10 Strength";
-				mes "";
-				mes "Would you like to continue with this modification?";
-				switch(select("Yes:No")) {
-					case 1:  //Yes is selected.  The equipped item is deleted and a new item with the modification is created in their inventory
-						delequip 10;
-						switch (@slotselected+1) {
-							case 1:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4700, @card1, @card2, @card3;
-								goto finished;
-							case 2:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4700, @card2, @card3;
-								goto finished;
-							case 3:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4700, @card3;
-								goto finished;
-							case 4:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4700;
-								goto finished;
-						}
-					
-					case 2:
-						close;
-				}
-				
-				AGIGain1:
-				mes "[Fallen Angel]";
-				mes "This option will add a modifier that increases Agility and has 10 levels.";
-				mes "Lv 1  - +1 AGI";
-				mes "Lv 2  - +2 AGI";
-				mes "Lv 3  - +3 AGI";
-				mes "Lv 4  - +4 AGI";
-				mes "Lv 5  - +5 AGI";
-				mes "Lv 6  - +6 AGI";
-				mes "Lv 7  - +7 AGI";
-				mes "Lv 8  - +8 AGI";
-				mes "Lv 9  - +9 AGI";
-				mes "Lv 10 - +10 AGI";
-				mes "";
-				mes "Would you like to continue with this modification?";
-				switch(select("Yes:No")) {
-					case 1:  //Yes is selected.  The equipped item is deleted and a new item with the modification is created in their inventory
-						delequip 10;
-						switch (@slotselected+1) {
-							case 1:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4730, @card1, @card2, @card3;
-								goto finished;
-							case 2:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4730, @card2, @card3;
-								goto finished;
-							case 3:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4730, @card3;
-								goto finished;
-							case 4:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4730;
-								goto finished;
+							modifieralreadyexists;
 						}
 						
-					case 2:
-						close;
-				}
-				
-				VITGain1:
-				mes "[Fallen Angel]";
-				mes "This option will add a modifier that increases Vitality and has 10 levels.";
-				mes "Lv 1  - +1 VIT";
-				mes "Lv 2  - +2 VIT";
-				mes "Lv 3  - +3 VIT";
-				mes "Lv 4  - +4 VIT";
-				mes "Lv 5  - +5 VIT";
-				mes "Lv 6  - +6 VIT";
-				mes "Lv 7  - +7 VIT";
-				mes "Lv 8  - +8 VIT";
-				mes "Lv 9  - +9 VIT";
-				mes "Lv 10 - +10 VIT";
-				mes "";
-				mes "Would you like to continue with this modification?";
-				switch(select("Yes:No")) {
-					case 1:  //Yes is selected.  The equipped item is deleted and a new item with the modification is created in their inventory
-						delequip 10;
-						switch (@slotselected+1) {
-							case 1:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4740, @card1, @card2, @card3;
-								goto finished;	
-							case 2:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4740, @card2, @card3;
-								goto finished;
-							case 3:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4740, @card3;
-								goto finished;
-							case 4:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4740;
-								goto finished;
+						if (getLUKupgrade(0)) {
+							generateitem(@slotselected,4750,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3);
+							finished;
 						}
+						close;
+						break;
 						
-					case 2:
-						close;
-				}
-				
-				INTGain1:
-				mes "[Fallen Angel]";
-				mes "This option will add a modifier that increases Intelligence and has 10 levels.";
-				mes "Lv 1  - +1 INT";
-				mes "Lv 2  - +2 INT";
-				mes "Lv 3  - +3 INT";
-				mes "Lv 4  - +4 INT";
-				mes "Lv 5  - +5 INT";
-				mes "Lv 6  - +6 INT";
-				mes "Lv 7  - +7 INT";
-				mes "Lv 8  - +8 INT";
-				mes "Lv 9  - +9 INT";
-				mes "Lv 10 - +10 INT";
-				mes "";
-				mes "Would you like to continue with this modification?";
-				switch(select("Yes:No")) {
-					case 1:  //Yes is selected.  The equipped item is deleted and a new item with the modification is created in their inventory
-						delequip 10;
-						switch (@slotselected+1) {
-							case 1:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4710, @card1, @card2, @card3;
-								goto finished;
-							case 2:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4710, @card2, @card3;
-								goto finished;
-							case 3:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4710, @card3;
-								goto finished;
-							case 4:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4710;
-								goto finished;
-						}
-						
-					case 2:
-						close;
-				}
-				
-				DEXGain1:
-				mes "[Fallen Angel]";
-				mes "This option will add a modifier that increases Dexterity and has 10 levels.";
-				mes "Lv 1  - +1 DEX";
-				mes "Lv 2  - +2 DEX";
-				mes "Lv 3  - +3 DEX";
-				mes "Lv 4  - +4 DEX";
-				mes "Lv 5  - +5 DEX";
-				mes "Lv 6  - +6 DEX";
-				mes "Lv 7  - +7 DEX";
-				mes "Lv 8  - +8 DEX";
-				mes "Lv 9  - +9 DEX";
-				mes "Lv 10 - +10 DEX";
-				mes "";
-				mes "Would you like to continue with this modification?";
-				switch(select("Yes:No")) {
-					case 1:  //Yes is selected.  The equipped item is deleted and a new item with the modification is created in their inventory
-						delequip 10;
-						switch (@slotselected+1) {
-							case 1:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4720, @card1, @card2, @card3;
-								goto finished;
-							case 2:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4720, @card2, @card3;
-								goto finished;
-							case 3:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4720, @card3;
-								goto finished;
-							case 4:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4720;
-								goto finished;
-						}
-						goto finished;
-					case 2:
-						close;
-				}
-				
-				LUKGain1:
-				mes "[Fallen Angel]";
-				mes "This option will add a modifier that increases Luck and has 10 levels.";
-				mes "Lv 1  - +1 LUK";
-				mes "Lv 2  - +2 LUK";
-				mes "Lv 3  - +3 LUK";
-				mes "Lv 4  - +4 LUK";
-				mes "Lv 5  - +5 LUK";
-				mes "Lv 6  - +6 LUK";
-				mes "Lv 7  - +7 LUK";
-				mes "Lv 8  - +8 LUK";
-				mes "Lv 9  - +9 LUK";
-				mes "Lv 10 - +10 LUK";
-				mes "";
-				mes "Would you like to continue with this modification?";
-				switch(select("Yes:No")) {
-					case 1:  //Yes is selected.  The equipped item is deleted and a new item with the modification is created in their inventory
-						delequip 10;
-						switch (@slotselected+1) {
-							case 1:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, 4750, @card1, @card2, @card3;
-								goto finished;
-							case 2:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, 4750, @card2, @card3;
-								goto finished;
-							case 3:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, 4750, @card3;
-								goto finished;
-							case 4:
-								getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, 4750;
-								goto finished;
-						}
-					
-					case 2:
-						close;
 				}
 			}
+								
 			
 			else { //If the Lower Headgear already has a modification in the selected slot
 				//Determine Modification Type and Level
 				if (getequipcardid(10,@slotselected) >= 4700 && getequipcardid(10,@slotselected) <= 4709) { // STR
 					@modlevel = getequipcardid(10,@slotselected) - 4700 + 1;
-					goto LowerSTRUpgrade;
-				}
+					isstatmaxedout(@modlevel, 3, "Strength");
+					if (getSTRupgrade(@modlevel)) {
+						switch (@modlevel) {
+							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
+								generateitem(@slotselected,4701,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+								finished;
+								break;
+							case 2: //Upgrade from 2 to 3.
+								if (Zeny < 1000){
+									notenoughzeny;
+									break;
+								}
+								else {
+									Zeny -= 1000;
+									generateitem(@slotselected,4702,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+									finished;
+									break;
+								}
+						}			
+					}
+					else {
+						close;
+					}
+				}	
 				if (getequipcardid(10,@slotselected) >= 4710 && getequipcardid(10,@slotselected) <= 4719) { //INT
 					@modlevel = getequipcardid(10,@slotselected) - 4710 + 1;
-					goto LowerINTUpgrade;
+					isstatmaxedout(@modlevel, 3, "Intelligence");
+					if (getINTupgrade(@modlevel)) {
+						switch (@modlevel) {
+							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
+								generateitem(@slotselected,4711,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+								finished;
+								break;
+							case 2: //Upgrade from 2 to 3.
+								if (Zeny < 1000){
+									notenoughzeny;
+									break;
+								}
+								else {
+									Zeny -= 1000;
+									generateitem(@slotselected,4712,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+									finished;
+									break;
+								}
+								
+						}			
+							
+					}
+					
+					else {
+						close;
+					}
 				}
 				if (getequipcardid(10,@slotselected) >= 4720 && getequipcardid(10,@slotselected) <= 4729) { //DEX
 					@modlevel = getequipcardid(10,@slotselected) - 4720 + 1;
-					goto LowerDEXUpgrade;
+					isstatmaxedout(@modlevel, 3, "Dexterity");
+					if (getDEXupgrade(@modlevel)) {
+						switch (@modlevel) {
+							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
+								generateitem(@slotselected,4721,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+								finished;
+								break;
+							case 2: //Upgrade from 2 to 3.
+								if (Zeny < 1000){
+									notenoughzeny;
+									break;
+								}
+								else {
+									Zeny -= 1000;
+									generateitem(@slotselected,4722,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+									finished;
+								}
+								break
+						}			
+							
+					}
+					else {
+						close;
+					}
 				}
 				if (getequipcardid(10,@slotselected) >= 4730 && getequipcardid(10,@slotselected) <= 4739) { //AGI
 					@modlevel = getequipcardid(10,@slotselected) - 4730 + 1;
-					goto LowerAGIUpgrade;
+					isstatmaxedout(@modlevel, 3, "Agility");
+					if (getAGIupgrade(@modlevel)) {
+						switch (@modlevel) {
+							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
+								generateitem(@slotselected,4731,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+								finished;
+								break;
+							case 2: //Upgrade from 2 to 3.
+								if (Zeny < 1000){
+									notenoughzeny;
+									break;
+								}
+								else {
+									Zeny -= 1000;
+									generateitem(@slotselected,4732,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+									finished;
+									break;
+								}
+						}			
+							
+					}
+					else {
+						close;
+					}
 				}
 				if (getequipcardid(10,@slotselected) >= 4740 && getequipcardid(10,@slotselected) <= 4749) { //VIT
 					@modlevel = getequipcardid(10,@slotselected) - 4740 + 1;
-					goto LowerVITUpgrade;
+					isstatmaxedout(@modlevel, 3, "Vitality");
+					if (getVITupgrade(@modlevel)) {
+						switch (@modlevel) {
+							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
+								generateitem(@slotselected,4741,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+								finished;
+								break;
+							case 2: //Upgrade from 2 to 3.
+								if (Zeny < 1000){
+									notenoughzeny;
+									break;
+								}
+								else {
+									Zeny -= 1000;
+									generateitem(@slotselected,4742,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+									finished;
+									break;
+								}
+						}			
+							
+					}
+					else {
+						close;
+					}
 				}
 				if (getequipcardid(10,@slotselected) >= 4750 && getequipcardid(10,@slotselected) <= 4759) { //LUK
 					@modlevel = getequipcardid(10,@slotselected) - 4750 + 1;
-					goto LowerLUKUpgrade;
+					isstatmaxedout(@modlevel, 3, "Luk");
+					if (getLUKupgrade(@modlevel)) {
+						switch (@modlevel) {
+							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
+								generateitem(@slotselected,4751,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+								finished;
+								break;
+							case 2: //Upgrade from 2 to 3.
+								if (Zeny < 1000){
+									notenoughzeny;
+									break;
+								}
+								else {
+									Zeny -= 1000;
+									generateitem(@slotselected,4752,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
+									finished;
+									break;
+								}
+						}			
+							
+					}
+					else {
+						close;
+					}
+					
 				}
 				close;
 		
-			}
-			
-			LowerSTRUpgrade:
-			if (@modlevel >= 3) { //This determines the max mod level.  Will set at 3 for testing, Max is up to 10.
-					mes "[Fallen Angel]";
-					mes "This item already has the max level Strength upgrade and cannot upgrade further.";
-					close;
-			}
-			else {
-					mes "[Fallen Angel]";
-					mes "Current Mod: Strength.";
-					mes "";
-					mes "Would you like to upgrade now?";
-				switch(select("Yes:No")) {
-					case 1:
-						goto LowerSTATUpgrade;
-					case 2:
-						close;
-				}
-			}
-		
-			LowerINTUpgrade:
-			if (@modlevel >= 3) {
-					mes "[Fallen Angel]";
-					mes "This item already has the max level Intelligence upgrade and cannot upgrade further.";
-					close;
-			}
-			else {
-					mes "[Fallen Angel]";
-					mes "Current Mod: Intelligence.";
-					mes "";
-					mes "Would you like to upgrade now?";
-				switch(select("Yes:No")) {
-					case 1:
-						goto LowerSTATUpgrade;
-					case 2:
-						close;
-				}
-			}
-			LowerDEXUpgrade:
-			if (@modlevel >= 3) {
-					mes "[Fallen Angel]";
-					mes "This item already has the max level Dexterity upgrade and cannot upgrade further.";
-					close;
-			}
-			else {
-					mes "[Fallen Angel]";
-					mes "Current Mod: Dexterity.";
-					mes "";
-					mes "Would you like to upgrade now?";
-				switch(select("Yes:No")) {
-					case 1:
-						goto LowerSTATUpgrade;
-					case 2:
-						close;
-				}
-			}
-			
-			LowerAGIUpgrade:
-			if (@modlevel >= 3) {
-					mes "[Fallen Angel]";
-					mes "This item already has the max level Agility upgrade and cannot upgrade further.";
-					close;
-			}
-			else {
-					mes "[Fallen Angel]";
-					mes "Current Mod: Agility.";
-					mes "";
-					mes "Would you like to upgrade now?";
-				switch(select("Yes:No")) {
-					case 1:
-						goto LowerSTATUpgrade;
-					case 2:
-						close;
-				}
-			}
-			
-			LowerVITUpgrade:
-			if (@modlevel >= 3) {
-					mes "[Fallen Angel]";
-					mes "This item already has the max level Vitality upgrade and cannot upgrade further.";
-					close;
-			}
-			else {
-					mes "[Fallen Angel]";
-					mes "Current Mod: Vitality.";
-					mes "";
-					mes "Would you like to upgrade now?";
-				switch(select("Yes:No")) {
-					case 1:
-						goto LowerSTATUpgrade;
-					case 2:
-						close;
-				}
-			}
-			LowerLUKUpgrade:
-			if (@modlevel >= 3) {
-					mes "[Fallen Angel]";
-					mes "This item already has the max level Luck upgrade and cannot upgrade further.";
-					close;
-			}
-			else {
-					mes "[Fallen Angel]";
-					mes "Current Mod: Luck.";
-					mes "";
-					mes "Would you like to upgrade now?";
-				switch(select("Yes:No")) {
-					case 1:
-						goto LowerSTATUpgrade;
-					case 2:
-						close;
-				}
-			}
-			
-			
-			LowerSTATUpgrade:
-			delequip 10;
-			switch (@slotselected+1) {
-				case 1:
-					@card0++;
-					break;
-				case 2:
-					@card1++;
-					break;
-				case 3:
-					@card2++;
-					break;
-				case 4:
-					@card3++;
-					break;
-			}
-			specialeffect2 EF_REPAIRWEAPON;
-			getitem2 @eqitemid, 1, 1, @eqrefine, 0, @card0, @card1, @card2, @card3;
-			goto finished;		
-			
-		
+			}	
 	}
-		
-	modifieralreadyexists:
-		mes "[Fallen Angel]";
-		mes "This item already has that type of upgrade and cannot be selected.";
-		close;
-		
-	finished:
-		mes "[Fallen Angel]";
-		mes "Hopefully if everything went well";
-		mes "Your item should be ready and in your inventory";
-		mes "";
-		mes "If not, then it sucks to be you.";
-		close;
-	}
+}
 	
