@@ -474,7 +474,7 @@ function getLUKupgrade {
 						close;
 						break;
 						
-					case 2: //AGI
+					case 4: //AGI
 						if ((getequipcardid(10,@sns1) >= 4730 && getequipcardid(10,@sns1) <= 4739) || (getequipcardid(10,@sns2) >= 4730 && getequipcardid(10,@sns2) <= 4739) || (getequipcardid(10,@sns3) >= 4730 && getequipcardid(10,@sns3) <= 4739)) {  //Checks to see if another slot already has this kind of modification
 							modifieralreadyexists;
 						}
@@ -486,7 +486,7 @@ function getLUKupgrade {
 						close;
 						break;
 						
-					case 3: //VIT
+					case 5: //VIT
 						if ((getequipcardid(10,@sns1) >= 4740 && getequipcardid(10,@sns1) <= 4749) || (getequipcardid(10,@sns2) >= 4740 && getequipcardid(10,@sns2) <= 4749) || (getequipcardid(10,@sns3) >= 4740 && getequipcardid(10,@sns3) <= 4749)) {  //Checks to see if another slot already has this kind of modification
 							modifieralreadyexists;
 						}
