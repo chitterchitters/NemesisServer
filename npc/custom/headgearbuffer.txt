@@ -35,7 +35,7 @@ function finished {
 
 function generateitem {
 		//(0 - SelectedSlot, 1 - SelectedSlotValue, 2 - Item ID, 3 - Refine Rate, 4 - Card 0, 5 - Card 1, 6 - Card 2, 7 - Card 3)
-		select (getarg(0)) {
+		switch (getarg(0)) {
 			case 0:
 				getitem2 getarg(2), 1, 1, getarg(3), 0, getarg(1), getarg(5), getarg(6), getarg(7);
 				break;
@@ -73,7 +73,7 @@ function getSTRupgrade {
 		//getSTRupgrade (Upgrade Level)
 		mes "[Fallen Angel]";
 		mes "Current Mod: Strength";
-		select (getarg(0)) {
+		switch (getarg(0)) {
 			case 0:
 				mes "This option will add a modifier that increases Strength and has 10 levels";
 				mes "Lv 1  - +1 Strength";
@@ -122,7 +122,7 @@ function getAGIupgrade {
 		//getAGIupgrade (Upgrade Level)
 		mes "[Fallen Angel]";
 		mes "Current Mod: Agility";
-		select (getarg(0)) {
+		switch (getarg(0)) {
 			case 0
 				mes "This option will add a modifier that increases Agility and has 10 levels.";
 				mes "Lv 1  - +1 AGI";
@@ -170,7 +170,7 @@ function getVITupgrade {
 		//getVITupgrade (Upgrade Level)
 		mes "[Fallen Angel]";
 		mes "Current Mod: Vitality";
-		select (getarg(0)) {
+		switch (getarg(0)) {
 			case 0
 				mes "This option will add a modifier that increases Vitality and has 10 levels.";
 				mes "Lv 1  - +1 VIT";
@@ -218,7 +218,7 @@ function getINTupgrade {
 		//getINTupgrade (Upgrade Level)
 		mes "[Fallen Angel]";
 		mes "Current Mod: Intelligence";
-		select (getarg(0)) {
+		switch (getarg(0)) {
 			case 0
 				mes "This option will add a modifier that increases Intelligence and has 10 levels.";
 				mes "Lv 1  - +1 INT";
@@ -266,7 +266,7 @@ function getDEXupgrade {
 		//getDEXupgrade (Upgrade Level)
 		mes "[Fallen Angel]";
 		mes "Current Mod: Dexterity";
-		select (getarg(0)) {
+		switch (getarg(0)) {
 			case 0
 				mes "This option will add a modifier that increases Dexterity and has 10 levels.";
 				mes "Lv 1  - +1 DEX";
@@ -314,7 +314,7 @@ function getLUKupgrade {
 		//getLUKupgrade (Upgrade Level)
 		mes "[Fallen Angel]";
 		mes "Current Mod: Luck";
-		select (getarg(0)) {
+		switch (getarg(0)) {
 			case 0
 				mes "This option will add a modifier that increases Luck and has 10 levels.";
 				mes "Lv 1  - +1 LUK";
@@ -350,7 +350,7 @@ function getLUKupgrade {
 		}
 		mes "";
 		mes "Would you like to upgrade now?";
-				switch(select("Yes:No")) {
+				switch (select("Yes:No")) {
 					case 1:
 						return 1;
 					case 2:
