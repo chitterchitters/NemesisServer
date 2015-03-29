@@ -87,7 +87,7 @@ function getSTRupgrade {
 				mes "Lv 9  - +9 Strength";
 				mes "Lv 10 - +10 Strength";
 				break;
-			case 1
+			case 1:
 				mes "Current Level: 1";
 				mes "   STR+1";
 				mes "";
@@ -97,7 +97,7 @@ function getSTRupgrade {
 				mes "Requirements for Upgrade:";
 				mes "   None";
 				break;
-			case 2
+			case 2:
 				mes "Current Level: 2";
 				mes "   STR+2";
 				mes "";
@@ -123,7 +123,7 @@ function getAGIupgrade {
 		mes "[Fallen Angel]";
 		mes "Current Mod: Agility";
 		switch (getarg(0)) {
-			case 0
+			case 0:
 				mes "This option will add a modifier that increases Agility and has 10 levels.";
 				mes "Lv 1  - +1 AGI";
 				mes "Lv 2  - +2 AGI";
@@ -135,7 +135,7 @@ function getAGIupgrade {
 				mes "Lv 8  - +8 AGI";
 				mes "Lv 9  - +9 AGI";
 				mes "Lv 10 - +10 AGI";
-			case 1
+			case 1:
 				mes "Current Level: 1";
 				mes "   AGI+1";
 				mes "";
@@ -145,7 +145,7 @@ function getAGIupgrade {
 				mes "Requirements for Upgrade:";
 				mes "   None";
 				break;
-			case 2
+			case 2:
 				mes "Current Level: 2";
 				mes "   AGI+2";
 				mes "";
@@ -171,7 +171,7 @@ function getVITupgrade {
 		mes "[Fallen Angel]";
 		mes "Current Mod: Vitality";
 		switch (getarg(0)) {
-			case 0
+			case 0:
 				mes "This option will add a modifier that increases Vitality and has 10 levels.";
 				mes "Lv 1  - +1 VIT";
 				mes "Lv 2  - +2 VIT";
@@ -183,7 +183,7 @@ function getVITupgrade {
 				mes "Lv 8  - +8 VIT";
 				mes "Lv 9  - +9 VIT";
 				mes "Lv 10 - +10 VIT";
-			case 1
+			case 1:
 				mes "Current Level: 1";
 				mes "   VIT+1";
 				mes "";
@@ -193,7 +193,7 @@ function getVITupgrade {
 				mes "Requirements for Upgrade:";
 				mes "   None";
 				break;
-			case 2
+			case 2:
 				mes "Current Level: 2";
 				mes "   VIT+2";
 				mes "";
@@ -219,7 +219,7 @@ function getINTupgrade {
 		mes "[Fallen Angel]";
 		mes "Current Mod: Intelligence";
 		switch (getarg(0)) {
-			case 0
+			case 0:
 				mes "This option will add a modifier that increases Intelligence and has 10 levels.";
 				mes "Lv 1  - +1 INT";
 				mes "Lv 2  - +2 INT";
@@ -231,7 +231,7 @@ function getINTupgrade {
 				mes "Lv 8  - +8 INT";
 				mes "Lv 9  - +9 INT";
 				mes "Lv 10 - +10 INT";
-			case 1
+			case 1:
 				mes "Current Level: 1";
 				mes "   INT+1";
 				mes "";
@@ -241,7 +241,7 @@ function getINTupgrade {
 				mes "Requirements for Upgrade:";
 				mes "   None";
 				break;
-			case 2
+			case 2:
 				mes "Current Level: 2";
 				mes "   INT+2";
 				mes "";
@@ -267,7 +267,7 @@ function getDEXupgrade {
 		mes "[Fallen Angel]";
 		mes "Current Mod: Dexterity";
 		switch (getarg(0)) {
-			case 0
+			case 0:
 				mes "This option will add a modifier that increases Dexterity and has 10 levels.";
 				mes "Lv 1  - +1 DEX";
 				mes "Lv 2  - +2 DEX";
@@ -279,7 +279,7 @@ function getDEXupgrade {
 				mes "Lv 8  - +8 DEX";
 				mes "Lv 9  - +9 DEX";
 				mes "Lv 10 - +10 DEX";
-			case 1
+			case 1:
 				mes "Current Level: 1";
 				mes "   DEX+1";
 				mes "";
@@ -289,7 +289,7 @@ function getDEXupgrade {
 				mes "Requirements for Upgrade:";
 				mes "   None";
 				break;
-			case 2
+			case 2:
 				mes "Current Level: 2";
 				mes "   DEX+2";
 				mes "";
@@ -315,7 +315,7 @@ function getLUKupgrade {
 		mes "[Fallen Angel]";
 		mes "Current Mod: Luck";
 		switch (getarg(0)) {
-			case 0
+			case 0:
 				mes "This option will add a modifier that increases Luck and has 10 levels.";
 				mes "Lv 1  - +1 LUK";
 				mes "Lv 2  - +2 LUK";
@@ -327,7 +327,7 @@ function getLUKupgrade {
 				mes "Lv 8  - +8 LUK";
 				mes "Lv 9  - +9 LUK";
 				mes "Lv 10 - +10 LUK";
-			case 1
+			case 1:
 				mes "Current Level: 1";
 				mes "   LUK+1";
 				mes "";
@@ -337,7 +337,7 @@ function getLUKupgrade {
 				mes "Requirements for Upgrade:";
 				mes "   None";
 				break;
-			case 2
+			case 2:
 				mes "Current Level: 2";
 				mes "   LUK+2";
 				mes "";
