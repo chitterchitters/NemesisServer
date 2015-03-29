@@ -35,7 +35,9 @@ function finished {
 
 function generateitem {
 		//(0 - SelectedCardSlot, 1 - SelectedSlotValue, 2 - Item ID, 3 - Refine Rate, 4 - Card 0, 5 - Card 1, 6 - Card 2, 7 - Card 3, 8 - EquipID Slot)
+		
 		delequip (getarg(8));
+		
 		switch (getarg(0)) {
 			case 0:
 				getitem2 getarg(2), 1, 1, getarg(3), 0, getarg(1), getarg(5), getarg(6), getarg(7);
@@ -523,7 +525,7 @@ function getLUKupgrade {
 					if (getSTRupgrade(@modlevel)) {
 						switch (@modlevel) {
 							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
-								generateitem(@slotselected,4701,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								generateitem(@slotselected,4701,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
 							case 2: //Upgrade from 2 to 3.
@@ -533,7 +535,7 @@ function getLUKupgrade {
 								}
 								else {
 									Zeny -= 1000;
-									generateitem(@slotselected,4702,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+									generateitem(@slotselected,4702,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 									finished;
 									break;
 								}
@@ -549,7 +551,7 @@ function getLUKupgrade {
 					if (getINTupgrade(@modlevel)) {
 						switch (@modlevel) {
 							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
-								generateitem(@slotselected,4711,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								generateitem(@slotselected,4711,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
 							case 2: //Upgrade from 2 to 3.
@@ -559,7 +561,7 @@ function getLUKupgrade {
 								}
 								else {
 									Zeny -= 1000;
-									generateitem(@slotselected,4712,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+									generateitem(@slotselected,4712,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 									finished;
 									break;
 								}
@@ -578,7 +580,7 @@ function getLUKupgrade {
 					if (getDEXupgrade(@modlevel)) {
 						switch (@modlevel) {
 							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
-								generateitem(@slotselected,4721,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								generateitem(@slotselected,4721,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
 							case 2: //Upgrade from 2 to 3.
@@ -588,7 +590,7 @@ function getLUKupgrade {
 								}
 								else {
 									Zeny -= 1000;
-									generateitem(@slotselected,4722,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+									generateitem(@slotselected,4722,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 									finished;
 								}
 						}			
@@ -604,7 +606,7 @@ function getLUKupgrade {
 					if (getAGIupgrade(@modlevel)) {
 						switch (@modlevel) {
 							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
-								generateitem(@slotselected,4731,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								generateitem(@slotselected,4731,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
 							case 2: //Upgrade from 2 to 3.
@@ -614,7 +616,7 @@ function getLUKupgrade {
 								}
 								else {
 									Zeny -= 1000;
-									generateitem(@slotselected,4732,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+									generateitem(@slotselected,4732,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 									finished;
 									break;
 								}
@@ -631,7 +633,7 @@ function getLUKupgrade {
 					if (getVITupgrade(@modlevel)) {
 						switch (@modlevel) {
 							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
-								generateitem(@slotselected,4741,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								generateitem(@slotselected,4741,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
 							case 2: //Upgrade from 2 to 3.
@@ -641,7 +643,7 @@ function getLUKupgrade {
 								}
 								else {
 									Zeny -= 1000;
-									generateitem(@slotselected,4742,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+									generateitem(@slotselected,4742,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 									finished;
 									break;
 								}
@@ -659,7 +661,7 @@ function getLUKupgrade {
 						
 						switch (@modlevel) {
 							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
-								generateitem(@slotselected,4751,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								generateitem(@slotselected,4751,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
 							case 2: //Upgrade from 2 to 3.
@@ -669,7 +671,7 @@ function getLUKupgrade {
 								}
 								else {
 									Zeny -= 1000;
-									generateitem(@slotselected,4752,eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+									generateitem(@slotselected,4752,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 									finished;
 									break;
 								}
