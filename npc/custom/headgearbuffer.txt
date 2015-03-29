@@ -590,7 +590,6 @@ function getLUKupgrade {
 									generateitem(@slotselected,4722,eqitemid,@eqrefine,@card0,@card1,@card2,@card3);
 									finished;
 								}
-								break
 						}			
 							
 					}
