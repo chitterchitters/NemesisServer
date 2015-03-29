@@ -34,7 +34,7 @@ function finished {
 }
 
 function generateitem {
-		//generateitem(0 - SelectedSlot, 1 - SelectedSlotValue, 2 - Item ID, 3 - Refine Rate, 4 - Card 0, 5 - Card 1, 6 - Card 2, 7 - Card 3);
+		//(0 - SelectedSlot, 1 - SelectedSlotValue, 2 - Item ID, 3 - Refine Rate, 4 - Card 0, 5 - Card 1, 6 - Card 2, 7 - Card 3)
 		select(getarg(0)){
 			case 0:
 				getitem2 getarg(2), 1, 1, getarg(3), 0, getarg(1), getarg(5), getarg(6), getarg(7);
