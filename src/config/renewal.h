@@ -21,7 +21,7 @@
  * line, by passing --disable-renewal to the configure script:
  * ./configure --disable-renewal
  */
-#define DISABLE_RENEWAL
+//#define DISABLE_RENEWAL
 
 
 #ifndef DISABLE_RENEWAL // Do not change this line
@@ -40,7 +40,7 @@
 /// example:
 ///  on a skill whos cast time is 10s, only 8s may be reduced. the other 2s are part of a
 ///  "fixed cast time" which can only be reduced by specialist items and skills
-#define RENEWAL_CAST
+//#define RENEWAL_CAST
 
 /// renewal drop rate algorithms
 /// (disable by commenting the line)
@@ -48,7 +48,7 @@
 /// leave this line to enable renewal item drop rate algorithms
 /// while enabled a special modified based on the difference between the player and monster level is applied
 /// based on the http://irowiki.org/wiki/Drop_System#Level_Factor table
-#define RENEWAL_DROP
+//#define RENEWAL_DROP
 
 /// renewal exp rate algorithms
 /// (disable by commenting the line)
