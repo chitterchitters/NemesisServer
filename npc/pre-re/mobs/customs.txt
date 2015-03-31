@@ -1,22 +1,8 @@
 //===== Hercules Script ======================================
 //= Customs
-// Steps for moving Renewal Monsters over
-// 1. Copy their monster info from re/mob_db to pre-re/mob_db, should already be nicely in order by area somewhat.
-// 2. Copy their Skill Use info from re/mob_skill_db.txt to pre-re/mob_skill_db.txt
-// 3. Copy their Spawn Information from npc/re/mobs/ to this file.
-// 4. Copy any renewal items they drop are in pre-re/itemdb.
-//    When Copying renewal weapons, any base MATK they have in "matk:" must be added to the script instead as "bonus bMatk,X" and the line removed.
-//    When copying renewal armor, reduce the DEF value of said armors to match an equivalent to pre-renewal values.
-// 5. Make sure the item info is placed in the iteminfo.lub in the client.
-//
-// To reiterate, pre-re/mob_db.txt, pre-re/mob_skill_db.txt, pre-re/mobs/customs.txt will be changed on the server
-// iteminfo.lua in the client's /system folder will be updated, making 4 total files to be changed.
-// Note: The client should recognize all sprite information already (since we can just turn renewal on and off) and that shouldn't cause any issues.
-
-//Brasilis Areas
 
 //==================================================
-// bra_fild01 - Brasilis Field  (These monsters are already defined with no need to import skill or item drop info)
+// bra_fild01 - Brasilis Field
 //==================================================
 bra_fild01,0,0,0,0	monster	Curupira	2074,50,0,0,0
 bra_fild01,0,0,0,0	monster	Dokebi	1110,10,0,0,0
@@ -25,77 +11,3 @@ bra_fild01,0,0,0,0	monster	Headless Mule	2071,40,0,0,0
 bra_fild01,0,0,0,0	monster	Red Mushroom	1085,5,0,0,0
 bra_fild01,0,0,0,0	monster	Jaguar	2072,55,0,0,0
 bra_fild01,0,0,0,0	monster	Toucan	2073,60,0,0,0
-
-//==================================================
-// bra_dun01 - Behind the Waterfall (These monsters are already defined with no need to import skill or item drop info)
-//==================================================
-bra_dun01,0,0,0,0	monster	Piranha	2070,80,5000,0,0
-bra_dun01,0,0,0,0	monster	Iara	2069,30,5000,0,0
-bra_dun01,0,0,0,0	monster	Black Mushroom	1084,5,180000,90000,1
-bra_dun01,0,0,0,0	monster	Marina	1141,20,5000,0,0
-bra_dun01,0,0,0,0	monster	Kukre	1070,10,5000,0,0
-bra_dun01,0,0,0,0	monster	Plankton	1161,10,5000,0,0
-bra_dun01,0,0,0,0	monster	Hydra	1068,15,5000,0,0
-
-//==================================================
-// bra_dun02 - Behind the Waterfall (These monsters are already defined with no need to import skill or item drop info)
-//==================================================
-bra_dun02,0,0,0,0	monster	Piranha	2070,60,5000,0,0
-bra_dun02,0,0,0,0	monster	Iara	2069,110,5000,0,0
-bra_dun02,0,0,0,0	monster	Marina	1141,10,5000,0,0
-bra_dun02,0,0,0,0	monster	Kukre	1070,10,5000,0,0
-bra_dun02,0,0,0,0	monster	Plankton	1161,10,5000,0,0
-bra_dun02,0,0,0,0	monster	Hydra	1068,15,5000,0,0
-bra_dun02,0,0,0,0	monster	Shining Plant	1083,2,5000,0,0
-bra_dun02,0,0,0,0	monster	Black Mushroom	1084,5,5000,0,0
-bra_dun02,0,0,0,0	boss_monster	Boitata	2068,1,7200000,600000,1
-
-
-//El Dicastes Areas
-
-//==================================================
-// dic_fild01 - At the Foot of the Kamidal Mountain
-//==================================================
-dic_fild01,0,0,0,0	monster	Centipede	1987,60,5000,0,0
-dic_fild01,0,0,0,0	monster	Centipede Larva	1999,30,5000,0,0
-dic_fild01,0,0,0,0	monster	Tatacho	1986,25,5000,0,0
-dic_fild01,0,0,0,0	monster	Dolomedes	2092,20,5000,0,0
-
-//==================================================
-// dic_fild02 - At the Foot of the Kamidal Mountain
-//==================================================
-dic_fild02,0,0,0,0	monster	Bradium Golem	2024,3,5000,0,0
-dic_fild02,0,0,0,0	monster	Centipede	1987,35,5000,0,0
-dic_fild02,0,0,0,0	monster	Centipede Larva	1999,10,5000,0,0
-dic_fild02,0,0,0,0	monster	Tatacho	1986,25,5000,0,0
-dic_fild02,0,0,0,0	monster	Dolomedes	2092,80,5000,0,0
-
-//==================================================
-// dic_dun01 - Underground Passage Kamidal Tunnel
-//==================================================
-dic_dun01,0,0,0,0	monster	One-Horned Scaraba	2083,50,5000,0,0
-dic_dun01,0,0,0,0	monster	Two-Horned Scaraba	2084,45,5000,0,0
-dic_dun01,0,0,0,0	monster	Scaraba Egg	2088,15,5000,0,0
-dic_dun01,0,0,0,0	monster	Scaraba Egg	2089,15,5000,0,0
-
-//==================================================
-// dic_dun02 - Underground Nest Scaraba Hole
-//==================================================
-dic_dun02,0,0,0,0	monster	Antler Scaraba	2085,50,5000,0,0
-dic_dun02,0,0,0,0	monster	Rake Scaraba	2086,45,5000,0,0
-dic_dun02,0,0,0,0	monster	Antler Scaraba Egg	2090,15,5000,0,0
-dic_dun02,0,0,0,0	monster	Rake Scaraba Egg	2091,15,5000,0,0
-dic_dun02,0,0,0,0	boss_monster	Scaraba Queen	2087,1,7200000,0,0
-
-//==================================================
-// dic_dun03 - Nightmare Scaraba Hole
-//==================================================
-dic_dun03,0,0,0,0	monster	Gold One-Horn Scaraba Egg	2166,10,5000,0,0
-dic_dun03,0,0,0,0	monster	Gold Two-Horn Scaraba Egg	2167,10,5000,0,0
-dic_dun03,0,0,0,0	monster	Gold Antler Scaraba Egg	2168,10,5000,0,0
-dic_dun03,0,0,0,0	monster	Gold Rake Scaraba Egg	2169,10,5000,0,0
-dic_dun03,0,0,0,0	monster	Gold One-Horn Scaraba	2161,30,5000,0,0
-dic_dun03,0,0,0,0	monster	Gold Two-Horn Scaraba	2162,30,5000,0,0
-dic_dun03,0,0,0,0	monster	Gold Antler Scaraba	2163,40,5000,0,0
-dic_dun03,0,0,0,0	monster	Gold Rake Scaraba	2164,40,5000,0,0
-dic_dun03,0,0,0,0	boss_monster	Gold Queen Scaraba	2165,1,7200000,0,0
