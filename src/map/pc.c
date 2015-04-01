@@ -6281,7 +6281,8 @@ int pc_need_status_point(struct map_session_data* sd, int type, int val)
 
 	for ( ; low < high; low++ )
 #ifdef RENEWAL // renewal status point cost formula
-		sp += (low < 100) ? (2 + (low - 1) / 10) : (16 + 4 * ((low - 100) / 5));
+		sp += ( 1 + (low + 9) / 10 );
+		//sp += (low < 100) ? (2 + (low - 1) / 10) : (16 + 4 * ((low - 100) / 5));
 #else
 		sp += ( 1 + (low + 9) / 10 );
 #endif
