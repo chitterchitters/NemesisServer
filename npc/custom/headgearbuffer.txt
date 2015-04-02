@@ -11,7 +11,7 @@
 //= 0.1 Initial script.  Supports only Lower Headgears upgrading Stats from 1 to 3.
 //============================================================
 
-prontera,146,170,5	script	Fallen Angel#mal	4_F_VALKYRIE,{
+prontera,146,170,5	script	Fallen Angel#mal2	4_F_VALKYRIE,{
 
 function modifieralreadyexists; function finished; function generateitem; function isstatmaxedout; function notenoughzeny;
 function getSTRupgrade; function getAGIupgrade; function getVITupgrade; function getINTupgrade; function getDEXupgrade; function getLUKupgrade;
