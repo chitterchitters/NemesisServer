@@ -13,7 +13,7 @@
 
 prontera,146,170,5	script	Fallen Angel#mal2	4_F_VALKYRIE,{
 
-function modifieralreadyexists; function finished; function generateitem; function isstatmaxedout; function notenoughzeny;
+function modifieralreadyexists; function finished; function generateitem; function isstatmaxedout; function isnotenoughzeny; function isnotenoughitem;
 function getSTRupgrade; function getAGIupgrade; function getVITupgrade; function getINTupgrade; function getDEXupgrade; function getLUKupgrade;
 
 function modifieralreadyexists {
@@ -66,14 +66,27 @@ function isstatmaxedout {
 		return;
 }
 
-function notenoughzeny {
-		mes "[Fallen Angel]";
-		mes "You do not have enough Zeny for this upgrade!";
-		close;
+function isnotenoughzeny {
+		if (Zeny < getarg(0)){
+			mes "[Fallen Angel]";
+			mes "You do not have enough Zeny for this upgrade!";
+			close;
+		}
+		return;
+}
+
+function isnotenoughitem {
+		if (countitem(getarg(0)) < getarg(1)) {
+			mes "[Fallen Angel]";
+			mes "You are missing "+(getarg(1)-countitem(getarg(0)))+" "+getitemname(getarg(0))+"(s).";
+			close;
+		}
+		return;
 }
 
 function getSTRupgrade {
 		//getSTRupgrade (Upgrade Level)
+		next;
 		mes "[Fallen Angel]";
 		mes "Current Mod: Strength";
 		switch (getarg(0)) {
@@ -108,7 +121,83 @@ function getSTRupgrade {
 				mes "   STR+3";
 				mes "";
 				mes "Requirements for Upgrade:";
-				mes "   1000 Zeny";
+				mes "   10000 Zeny";
+				break;
+			case 3:
+				mes "Current Level: 3";
+				mes "   STR+3";
+				mes "";
+				mes "Next Level: 4";
+				mes "   STR+4";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   50000 Zeny";
+				break;
+			case 4:
+				mes "Current Level: 4";
+				mes "   STR+4";
+				mes "";
+				mes "Next Level: 5";
+				mes "   STR+5";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   100000 Zeny";
+				mes "   100 Animal Gore";
+				break;
+			case 5:
+				mes "Current Level: 5";
+				mes "   STR+5";
+				mes "";
+				mes "Next Level: 6";
+				mes "   STR+6";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   200000 Zeny";
+				mes "   100 Tassels";
+				break;
+			case 6:
+				mes "Current Level: 6";
+				mes "   STR+6";
+				mes "";
+				mes "Next Level: 7";
+				mes "   STR+7";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   300000 Zeny";
+				mes "   100 Broken Wine Vessels";
+				break;
+			case 7:
+				mes "Current Level: 7";
+				mes "   STR+7";
+				mes "";
+				mes "Next Level: 8";
+				mes "   STR+8";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   500000 Zeny";
+				mes "   100 Broken Farming Utensils";
+				break;
+			case 8:
+				mes "Current Level: 8";
+				mes "   STR+8";
+				mes "";
+				mes "Next Level: 9";
+				mes "   STR+9";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   750000 Zeny";
+				mes "   100 Dark Pieces";
+				break;
+			case 9:
+				mes "Current Level: 9";
+				mes "   STR+9";
+				mes "";
+				mes "Next Level: 10";
+				mes "   STR+10";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000000 Zeny";
+				mes "   1 Fire Dragon Scale";
 				break;
 		}
 		mes "";
@@ -123,6 +212,7 @@ function getSTRupgrade {
 
 function getAGIupgrade {
 		//getAGIupgrade (Upgrade Level)
+		next;
 		mes "[Fallen Angel]";
 		mes "Current Mod: Agility";
 		switch (getarg(0)) {
@@ -156,7 +246,83 @@ function getAGIupgrade {
 				mes "   AGI+3";
 				mes "";
 				mes "Requirements for Upgrade:";
-				mes "   1000 Zeny";
+				mes "   10000 Zeny";
+				break;
+			case 3:
+				mes "Current Level: 3";
+				mes "   AGI+3";
+				mes "";
+				mes "Next Level: 4";
+				mes "   AGI+4";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   50000 Zeny";
+				break;
+			case 4:
+				mes "Current Level: 4";
+				mes "   AGI+4";
+				mes "";
+				mes "Next Level: 5";
+				mes "   AGI+5";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   100000 Zeny";
+				mes "   100 Izidor";
+				break;
+			case 5:
+				mes "Current Level: 5";
+				mes "   AGI+5";
+				mes "";
+				mes "Next Level: 6";
+				mes "   AGI+6";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   200000 Zeny";
+				mes "   100 Needles of Alarm";
+				break;
+			case 6:
+				mes "Current Level: 6";
+				mes "   AGI+6";
+				mes "";
+				mes "Next Level: 7";
+				mes "   AGI+7";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   300000 Zeny";
+				mes "   100 Broken Shuriken";
+				break;
+			case 7:
+				mes "Current Level: 7";
+				mes "   AGI+7";
+				mes "";
+				mes "Next Level: 8";
+				mes "   AGI+8";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   500000 Zeny";
+				mes "   100 Old Shuriken";
+				break;
+			case 8:
+				mes "Current Level: 8";
+				mes "   AGI+8";
+				mes "";
+				mes "Next Level: 9";
+				mes "   AGI+9";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   750000 Zeny";
+				mes "   100 Crystals of Darkness";
+				break;
+			case 9:
+				mes "Current Level: 9";
+				mes "   AGI+9";
+				mes "";
+				mes "Next Level: 10";
+				mes "   AGI+10";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000000 Zeny";
+				mes "   1 Pocket Watch";
 				break;
 		}
 		mes "";
@@ -171,6 +337,7 @@ function getAGIupgrade {
 
 function getVITupgrade {
 		//getVITupgrade (Upgrade Level)
+		next;
 		mes "[Fallen Angel]";
 		mes "Current Mod: Vitality";
 		switch (getarg(0)) {
@@ -204,7 +371,83 @@ function getVITupgrade {
 				mes "   VIT+3";
 				mes "";
 				mes "Requirements for Upgrade:";
-				mes "   1000 Zeny";
+				mes "   10000 Zeny";
+				break;
+			case 3:
+				mes "Current Level: 3";
+				mes "   VIT+3";
+				mes "";
+				mes "Next Level: 4";
+				mes "   VIT+4";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   50000 Zeny";
+				break;
+			case 4:
+				mes "Current Level: 4";
+				mes "   VIT+4";
+				mes "";
+				mes "Next Level: 5";
+				mes "   VIT+5";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   100000 Zeny";
+				mes "   100 Stone Heart";
+				break;
+			case 5:
+				mes "Current Level: 5";
+				mes "   VIT+5";
+				mes "";
+				mes "Next Level: 6";
+				mes "   VIT+6";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   200000 Zeny";
+				mes "   100 Manacles";
+				break;
+			case 6:
+				mes "Current Level: 6";
+				mes "   VIT+6";
+				mes "";
+				mes "Next Level: 7";
+				mes "   VIT+7";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   300000 Zeny";
+				mes "   100 Armor Piecees of Dullahan";
+				break;
+			case 7:
+				mes "Current Level: 7";
+				mes "   VIT+7";
+				mes "";
+				mes "Next Level: 8";
+				mes "   VIT+8";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   500000 Zeny";
+				mes "   100 Refined Bradium";
+				break;
+			case 8:
+				mes "Current Level: 8";
+				mes "   VIT+8";
+				mes "";
+				mes "Next Level: 9";
+				mes "   VIT+9";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   750000 Zeny";
+				mes "   100 Antler Horns";
+				break;
+			case 9:
+				mes "Current Level: 9";
+				mes "   VIT+9";
+				mes "";
+				mes "Next Level: 10";
+				mes "   VIT+10";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000000 Zeny";
+				mes "   1 Hard Skin";
 				break;
 		}
 		mes "";
@@ -219,6 +462,7 @@ function getVITupgrade {
 
 function getINTupgrade {
 		//getINTupgrade (Upgrade Level)
+		next;
 		mes "[Fallen Angel]";
 		mes "Current Mod: Intelligence";
 		switch (getarg(0)) {
@@ -252,7 +496,83 @@ function getINTupgrade {
 				mes "   INT+3";
 				mes "";
 				mes "Requirements for Upgrade:";
-				mes "   1000 Zeny";
+				mes "   10000 Zeny";
+				break;
+			case 3:
+				mes "Current Level: 3";
+				mes "   INT+3";
+				mes "";
+				mes "Next Level: 4";
+				mes "   INT+4";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   50000 Zeny";
+				break;
+			case 4:
+				mes "Current Level: 4";
+				mes "   INT+4";
+				mes "";
+				mes "Next Level: 5";
+				mes "   INT+5";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   100000 Zeny";
+				mes "   100 Dragon Scales";
+				break;
+			case 5:
+				mes "Current Level: 5";
+				mes "   INT+5";
+				mes "";
+				mes "Next Level: 6";
+				mes "   INT+6";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   200000 Zeny";
+				mes "   100 Cloud Crumbs";
+				break;
+			case 6:
+				mes "Current Level: 6";
+				mes "   INT+6";
+				mes "";
+				mes "Next Level: 7";
+				mes "   INT+7";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   300000 Zeny";
+				mes "   100 Cold Ice";
+				break;
+			case 7:
+				mes "Current Level: 7";
+				mes "   INT+7";
+				mes "";
+				mes "Next Level: 8";
+				mes "   INT+8";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   500000 Zeny";
+				mes "   100 Peaked Hats";
+				break;
+			case 8:
+				mes "Current Level: 8";
+				mes "   INT+8";
+				mes "";
+				mes "Next Level: 9";
+				mes "   INT+9";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   750000 Zeny";
+				mes "   100 Fancy Fairy Wings";
+				break;
+			case 9:
+				mes "Current Level: 9";
+				mes "   INT+9";
+				mes "";
+				mes "Next Level: 10";
+				mes "   INT+10";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000000 Zeny";
+				mes "   1 Queen Wing Piece";
 				break;
 		}
 		mes "";
@@ -267,6 +587,7 @@ function getINTupgrade {
 
 function getDEXupgrade {
 		//getDEXupgrade (Upgrade Level)
+		next;
 		mes "[Fallen Angel]";
 		mes "Current Mod: Dexterity";
 		switch (getarg(0)) {
@@ -300,7 +621,83 @@ function getDEXupgrade {
 				mes "   DEX+3";
 				mes "";
 				mes "Requirements for Upgrade:";
-				mes "   1000 Zeny";
+				mes "   10000 Zeny";
+				break;
+			case 3:
+				mes "Current Level: 3";
+				mes "   DEX+3";
+				mes "";
+				mes "Next Level: 4";
+				mes "   DEX+4";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   50000 Zeny";
+				break;
+			case 4:
+				mes "Current Level: 4";
+				mes "   DEX+4";
+				mes "";
+				mes "Next Level: 5";
+				mes "   DEX+5";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   100000 Zeny";
+				mes "   100 Little Ghost Dolls";
+				break;
+			case 5:
+				mes "Current Level: 5";
+				mes "   DEX+5";
+				mes "";
+				mes "Next Level: 6";
+				mes "   DEX+6";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   200000 Zeny";
+				mes "   100 Alice's Aprons";
+				break;
+			case 6:
+				mes "Current Level: 6";
+				mes "   DEX+6";
+				mes "";
+				mes "Next Level: 7";
+				mes "   DEX+7";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   300000 Zeny";
+				mes "   100 Tengu Noses";
+				break;
+			case 7:
+				mes "Current Level: 7";
+				mes "   DEX+7";
+				mes "";
+				mes "Next Level: 8";
+				mes "   DEX+8";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   500000 Zeny";
+				mes "   100 Burnt Parts";
+				break;
+			case 8:
+				mes "Current Level: 8";
+				mes "   DEX+8";
+				mes "";
+				mes "Next Level: 9";
+				mes "   DEX+9";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   750000 Zeny";
+				mes "   100 Cog Wheels";
+				break;
+			case 9:
+				mes "Current Level: 9";
+				mes "   DEX+9";
+				mes "";
+				mes "Next Level: 10";
+				mes "   DEX+10";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000000 Zeny";
+				mes "   1 Will of Red Darkness";
 				break;
 		}
 		mes "";
@@ -315,6 +712,7 @@ function getDEXupgrade {
 
 function getLUKupgrade {
 		//getLUKupgrade (Upgrade Level)
+		next;
 		mes "[Fallen Angel]";
 		mes "Current Mod: Luck";
 		switch (getarg(0)) {
@@ -348,7 +746,83 @@ function getLUKupgrade {
 				mes "   LUK+3";
 				mes "";
 				mes "Requirements for Upgrade:";
-				mes "   1000 Zeny";
+				mes "   10000 Zeny";
+				break;
+			case 3:
+				mes "Current Level: 3";
+				mes "   LUK+3";
+				mes "";
+				mes "Next Level: 4";
+				mes "   LUK+4";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   50000 Zeny";
+				break;
+			case 4:
+				mes "Current Level: 4";
+				mes "   LUK+4";
+				mes "";
+				mes "Next Level: 5";
+				mes "   LUK+5";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   100000 Zeny";
+				mes "   100 Shining Scales";
+				break;
+			case 5:
+				mes "Current Level: 5";
+				mes "   LUK+5";
+				mes "";
+				mes "Next Level: 6";
+				mes "   LUK+6";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   200000 Zeny";
+				mes "   100 Four Leaf Clovers";
+				break;
+			case 6:
+				mes "Current Level: 6";
+				mes "   LUK+6";
+				mes "";
+				mes "Next Level: 7";
+				mes "   LUK+7";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   300000 Zeny";
+				mes "   100 Black Cat Dolls";
+				break;
+			case 7:
+				mes "Current Level: 7";
+				mes "   LUK+7";
+				mes "";
+				mes "Next Level: 8";
+				mes "   LUK+8";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   500000 Zeny";
+				mes "   100 White Masks";
+				break;
+			case 8:
+				mes "Current Level: 8";
+				mes "   LUK+8";
+				mes "";
+				mes "Next Level: 9";
+				mes "   LUK+9";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   750000 Zeny";
+				mes "   100 Mystic Horns";
+				break;
+			case 9:
+				mes "Current Level: 9";
+				mes "   LUK+9";
+				mes "";
+				mes "Next Level: 10";
+				mes "   LUK+10";
+				mes "";
+				mes "Requirements for Upgrade:";
+				mes "   1000000 Zeny";
+				mes "   1 Gemstone";
 				break;
 		}
 		mes "";
@@ -521,24 +995,90 @@ function getLUKupgrade {
 				//Determine Modification Type and Level
 				if (getequipcardid(10,@slotselected) >= 4700 && getequipcardid(10,@slotselected) <= 4709) { // STR
 					@modlevel = getequipcardid(10,@slotselected) - 4700 + 1;
-					isstatmaxedout(@modlevel, 3, "Strength");
+					isstatmaxedout(@modlevel, 10, "Strength");
 					if (getSTRupgrade(@modlevel)) {
 						switch (@modlevel) {
 							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
 								generateitem(@slotselected,4701,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
+								
 							case 2: //Upgrade from 2 to 3.
-								if (Zeny < 1000){
-									notenoughzeny;
-									break;
-								}
-								else {
-									Zeny -= 1000;
-									generateitem(@slotselected,4702,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
-									finished;
-									break;
-								}
+								isnotenoughzeny(10000);					
+								
+								Zeny -= 10000;
+								generateitem(@slotselected,4702,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 3: //Upgrade from 3 to 4.
+								isnotenoughzeny(50000);
+								
+								Zeny -= 50000;
+								generateitem(@slotselected,4703,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 4: //Upgrade from 4 to 5.
+								isnotenoughzeny(100000);
+								isnotenoughitem(702,100);
+								
+								Zeny -= 100000;
+								delitem 702,100;
+								generateitem(@slotselected,4704,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 5: //Upgrade from 5 to 6.
+								isnotenoughzeny(200000);
+								isnotenoughitem(7301,100);
+								
+								Zeny -= 200000;
+								delitem 7301,100;
+								generateitem(@slotselected,4705,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 6: //Upgrade from 6 to 7.
+								isnotenoughzeny(300000);
+								isnotenoughitem(7158,100);
+								
+								Zeny -= 300000;
+								delitem 7158,100;
+								generateitem(@slotselected,4706,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 7: //Upgrade from 7 to 8.
+								isnotenoughzeny(500000);
+								isnotenoughitem(7753,100);
+								
+								Zeny -= 500000;
+								delitem 7753,100;
+								generateitem(@slotselected,4707,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 8: //Upgrade from 8 to 9.
+								isnotenoughzeny(750000);
+								isnotenoughitem(6089,100);
+								
+								Zeny -= 750000;
+								delitem 6089,100;
+								generateitem(@slotselected,4708,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 9: //Upgrade from 9 to 10.
+								isnotenoughzeny(1000000);
+								isnotenoughitem(7451,1);
+								
+								Zeny -= 1000000;
+								delitem 7451,1;
+								generateitem(@slotselected,4709,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
 						}			
 					}
 					else {
@@ -547,24 +1087,89 @@ function getLUKupgrade {
 				}	
 				if (getequipcardid(10,@slotselected) >= 4710 && getequipcardid(10,@slotselected) <= 4719) { //INT
 					@modlevel = getequipcardid(10,@slotselected) - 4710 + 1;
-					isstatmaxedout(@modlevel, 3, "Intelligence");
+					isstatmaxedout(@modlevel, 10, "Intelligence");
 					if (getINTupgrade(@modlevel)) {
 						switch (@modlevel) {
 							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
 								generateitem(@slotselected,4711,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
+							
 							case 2: //Upgrade from 2 to 3.
-								if (Zeny < 1000){
-									notenoughzeny;
-									break;
-								}
-								else {
-									Zeny -= 1000;
-									generateitem(@slotselected,4712,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
-									finished;
-									break;
-								}
+								isnotenoughzeny(10000);					
+								
+								Zeny -= 10000;
+								generateitem(@slotselected,4712,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 3: //Upgrade from 3 to 4.
+								isnotenoughzeny(50000);
+								
+								Zeny -= 50000;
+								generateitem(@slotselected,4713,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 4: //Upgrade from 4 to 5.
+								isnotenoughzeny(100000);
+								isnotenoughitem(1036,100);
+								
+								Zeny -= 100000;
+								delitem 1036,100;
+								generateitem(@slotselected,4714,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 5: //Upgrade from 5 to 6.
+								isnotenoughzeny(200000);
+								isnotenoughitem(7162,100);
+								
+								Zeny -= 200000;
+								delitem 7162,100;
+								generateitem(@slotselected,4715,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 6: //Upgrade from 6 to 7.
+								isnotenoughzeny(300000);
+								isnotenoughitem(6253,100);
+								
+								Zeny -= 300000;
+								delitem 6253,100;
+								generateitem(@slotselected,4716,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 7: //Upgrade from 7 to 8.
+								isnotenoughzeny(500000);
+								isnotenoughitem(6021,100);
+								
+								Zeny -= 500000;
+								delitem 6021,100;
+								generateitem(@slotselected,4717,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 8: //Upgrade from 8 to 9.
+								isnotenoughzeny(750000);
+								isnotenoughitem(6557,100);
+								
+								Zeny -= 750000;
+								delitem 6557,100;
+								generateitem(@slotselected,4718,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 9: //Upgrade from 9 to 10.
+								isnotenoughzeny(1000000);
+								isnotenoughitem(6326,1);
+								
+								Zeny -= 1000000;
+								delitem 6326,1;
+								generateitem(@slotselected,4719,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
 								
 						}			
 							
@@ -576,23 +1181,90 @@ function getLUKupgrade {
 				}
 				if (getequipcardid(10,@slotselected) >= 4720 && getequipcardid(10,@slotselected) <= 4729) { //DEX
 					@modlevel = getequipcardid(10,@slotselected) - 4720 + 1;
-					isstatmaxedout(@modlevel, 3, "Dexterity");
+					isstatmaxedout(@modlevel, 10, "Dexterity");
 					if (getDEXupgrade(@modlevel)) {
 						switch (@modlevel) {
 							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
 								generateitem(@slotselected,4721,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
+								
 							case 2: //Upgrade from 2 to 3.
-								if (Zeny < 1000){
-									notenoughzeny;
-									break;
-								}
-								else {
-									Zeny -= 1000;
-									generateitem(@slotselected,4722,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
-									finished;
-								}
+								isnotenoughzeny(10000);					
+								
+								Zeny -= 10000;
+								generateitem(@slotselected,4722,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 3: //Upgrade from 3 to 4.
+								isnotenoughzeny(50000);
+								
+								Zeny -= 50000;
+								generateitem(@slotselected,4723,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 4: //Upgrade from 4 to 5.
+								isnotenoughzeny(100000);
+								isnotenoughitem(7268,100);
+								
+								Zeny -= 100000;
+								delitem 7268,100;
+								generateitem(@slotselected,4724,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 5: //Upgrade from 5 to 6.
+								isnotenoughzeny(200000);
+								isnotenoughitem(7047,100);
+								
+								Zeny -= 200000;
+								delitem 7047,100;
+								generateitem(@slotselected,4725,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 6: //Upgrade from 6 to 7.
+								isnotenoughzeny(300000);
+								isnotenoughitem(7159,100);
+								
+								Zeny -= 300000;
+								delitem 7159,100;
+								generateitem(@slotselected,4726,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 7: //Upgrade from 7 to 8.
+								isnotenoughzeny(500000);
+								isnotenoughitem(7512,100);
+								
+								Zeny -= 500000;
+								delitem 7512,100;
+								generateitem(@slotselected,4727,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 8: //Upgrade from 8 to 9.
+								isnotenoughzeny(750000);
+								isnotenoughitem(7093,100);
+								
+								Zeny -= 750000;
+								delitem 7093,100;
+								generateitem(@slotselected,4728,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 9: //Upgrade from 9 to 10.
+								isnotenoughzeny(1000000);
+								isnotenoughitem(7566,1);
+								
+								Zeny -= 1000000;
+								delitem 7566,1;
+								generateitem(@slotselected,4729,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
 						}			
 							
 					}
@@ -602,25 +1274,91 @@ function getLUKupgrade {
 				}
 				if (getequipcardid(10,@slotselected) >= 4730 && getequipcardid(10,@slotselected) <= 4739) { //AGI
 					@modlevel = getequipcardid(10,@slotselected) - 4730 + 1;
-					isstatmaxedout(@modlevel, 3, "Agility");
+					isstatmaxedout(@modlevel, 10, "Agility");
 					if (getAGIupgrade(@modlevel)) {
 						switch (@modlevel) {
 							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
 								generateitem(@slotselected,4731,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
+								
 							case 2: //Upgrade from 2 to 3.
-								if (Zeny < 1000){
-									notenoughzeny;
-									break;
-								}
-								else {
-									Zeny -= 1000;
-									generateitem(@slotselected,4732,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
-									finished;
-									break;
-								}
-						}			
+								isnotenoughzeny(10000);					
+								
+								Zeny -= 10000;
+								generateitem(@slotselected,4732,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 3: //Upgrade from 3 to 4.
+								isnotenoughzeny(50000);
+								
+								Zeny -= 50000;
+								generateitem(@slotselected,4733,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 4: //Upgrade from 4 to 5.
+								isnotenoughzeny(100000);
+								isnotenoughitem(709,100);
+								
+								Zeny -= 100000;
+								delitem 709,100;
+								generateitem(@slotselected,4734,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 5: //Upgrade from 5 to 6.
+								isnotenoughzeny(200000);
+								isnotenoughitem(1095,100);
+								
+								Zeny -= 200000;
+								delitem 1095,100;
+								generateitem(@slotselected,4735,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 6: //Upgrade from 6 to 7.
+								isnotenoughzeny(300000);
+								isnotenoughitem(7156,100);
+								
+								Zeny -= 300000;
+								delitem 7156,100;
+								generateitem(@slotselected,4736,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 7: //Upgrade from 7 to 8.
+								isnotenoughzeny(500000);
+								isnotenoughitem(7072,100);
+								
+								Zeny -= 500000;
+								delitem 7072,100;
+								generateitem(@slotselected,4737,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 8: //Upgrade from 8 to 9.
+								isnotenoughzeny(750000);
+								isnotenoughitem(7799,100);
+								
+								Zeny -= 750000;
+								delitem 7799,100;
+								generateitem(@slotselected,4738,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 9: //Upgrade from 9 to 10.
+								isnotenoughzeny(1000000);
+								isnotenoughitem(7513,1);
+								
+								Zeny -= 1000000;
+								delitem 7513,1;
+								generateitem(@slotselected,4739,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+						}
 							
 					}
 					else {
@@ -629,24 +1367,90 @@ function getLUKupgrade {
 				}
 				if (getequipcardid(10,@slotselected) >= 4740 && getequipcardid(10,@slotselected) <= 4749) { //VIT
 					@modlevel = getequipcardid(10,@slotselected) - 4740 + 1;
-					isstatmaxedout(@modlevel, 3, "Vitality");
+					isstatmaxedout(@modlevel, 10, "Vitality");
 					if (getVITupgrade(@modlevel)) {
 						switch (@modlevel) {
 							case 1: //for Upgrading Level 1 to Level 2.  It has no requirements so it simply makes the item
 								generateitem(@slotselected,4741,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
+								
 							case 2: //Upgrade from 2 to 3.
-								if (Zeny < 1000){
-									notenoughzeny;
-									break;
-								}
-								else {
-									Zeny -= 1000;
-									generateitem(@slotselected,4742,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
-									finished;
-									break;
-								}
+								isnotenoughzeny(10000);					
+								
+								Zeny -= 10000;
+								generateitem(@slotselected,4742,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 3: //Upgrade from 3 to 4.
+								isnotenoughzeny(50000);
+								
+								Zeny -= 50000;
+								generateitem(@slotselected,4743,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 4: //Upgrade from 4 to 5.
+								isnotenoughzeny(100000);
+								isnotenoughitem(953,100);
+								
+								Zeny -= 100000;
+								delitem 953,100;
+								generateitem(@slotselected,4744,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 5: //Upgrade from 5 to 6.
+								isnotenoughzeny(200000);
+								isnotenoughitem(1098,100);
+								
+								Zeny -= 200000;
+								delitem 1098,100;
+								generateitem(@slotselected,4745,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 6: //Upgrade from 6 to 7.
+								isnotenoughzeny(300000);
+								isnotenoughitem(7210,100);
+								
+								Zeny -= 300000;
+								delitem 7210,100;
+								generateitem(@slotselected,4746,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 7: //Upgrade from 7 to 8.
+								isnotenoughzeny(500000);
+								isnotenoughitem(6090,100);
+								
+								Zeny -= 500000;
+								delitem 6090,100;
+								generateitem(@slotselected,4747,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 8: //Upgrade from 8 to 9.
+								isnotenoughzeny(750000);
+								isnotenoughitem(6322,100);
+								
+								Zeny -= 750000;
+								delitem 6322,100;
+								generateitem(@slotselected,4748,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 9: //Upgrade from 9 to 10.
+								isnotenoughzeny(1000000);
+								isnotenoughitem(6022,1);
+								
+								Zeny -= 1000000;
+								delitem 6022,1;
+								generateitem(@slotselected,4749,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
 						}			
 							
 					}
@@ -656,7 +1460,7 @@ function getLUKupgrade {
 				}
 				if (getequipcardid(10,@slotselected) >= 4750 && getequipcardid(10,@slotselected) <= 4759) { //LUK
 					@modlevel = getequipcardid(10,@slotselected) - 4750 + 1;
-					isstatmaxedout(@modlevel, 3, "Luck");
+					isstatmaxedout(@modlevel, 10, "Luck");
 					if (getLUKupgrade(@modlevel)) {
 						
 						switch (@modlevel) {
@@ -664,17 +1468,83 @@ function getLUKupgrade {
 								generateitem(@slotselected,4751,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
 								finished;
 								break;
+								
 							case 2: //Upgrade from 2 to 3.
-								if (Zeny < 1000){
-									notenoughzeny;
-									break;
-								}
-								else {
-									Zeny -= 1000;
-									generateitem(@slotselected,4752,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
-									finished;
-									break;
-								}
+								isnotenoughzeny(10000);					
+								
+								Zeny -= 10000;
+								generateitem(@slotselected,4752,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 3: //Upgrade from 3 to 4.
+								isnotenoughzeny(50000);
+								
+								Zeny -= 50000;
+								generateitem(@slotselected,4753,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 4: //Upgrade from 4 to 5.
+								isnotenoughzeny(100000);
+								isnotenoughitem(954,100);
+								
+								Zeny -= 100000;
+								delitem 954,100;
+								generateitem(@slotselected,4754,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 5: //Upgrade from 5 to 6.
+								isnotenoughzeny(200000);
+								isnotenoughitem(7321,100);
+								
+								Zeny -= 200000;
+								delitem 7321,100;
+								generateitem(@slotselected,4755,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 6: //Upgrade from 6 to 7.
+								isnotenoughzeny(300000);
+								isnotenoughitem(7206,100);
+								
+								Zeny -= 300000;
+								delitem 7206,100;
+								generateitem(@slotselected,4756,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 7: //Upgrade from 7 to 8.
+								isnotenoughzeny(500000);
+								isnotenoughitem(7568,100);
+								
+								Zeny -= 500000;
+								delitem 7568,100;
+								generateitem(@slotselected,4757,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
+							case 8: //Upgrade from 8 to 9.
+								isnotenoughzeny(750000);
+								isnotenoughitem(6023,100);
+								
+								Zeny -= 750000;
+								delitem 6023,100;
+								generateitem(@slotselected,4758,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+							
+							case 9: //Upgrade from 9 to 10.
+								isnotenoughzeny(1000000);
+								isnotenoughitem(7300,1);
+								
+								Zeny -= 1000000;
+								delitem 7300,1;
+								generateitem(@slotselected,4759,@eqitemid,@eqrefine,@card0,@card1,@card2,@card3, 10);
+								finished;
+								break;
+								
 						}			
 							
 					}
