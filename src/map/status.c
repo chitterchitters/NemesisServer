@@ -4124,7 +4124,8 @@ unsigned short status_base_matk(struct block_list *bl, const struct status_data 
 			return st->int_ + st->int_ / 5 * st->int_ / 5;
 		case BL_PC:
 		default: // temporary until all are formulated
-			return st->int_ + ((st->int_ / 5)*(st->int_ / 5)) + (st->dex / 3) + (st->luk) + (level / 2);
+			//return st->int_ + ((st->int_ / 5)*(st->int_ / 5)) + (st->dex / 3) + (st->luk) + (level / 2);
+			return st->int_ + (st->int_ / 2) + (st->dex / 5) + (st->luk / 3) + (level / 4);
 	}
 #else
 	return 0;
