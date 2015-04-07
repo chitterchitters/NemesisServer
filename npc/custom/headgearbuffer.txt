@@ -856,35 +856,35 @@ function getUPPERupgrade (
 				mes "This option will add the Vampiric Aura upgrade.";
 				mes "";
 				mes "Vampiric Aura";
-				mes "Adds a 5% * Refine Chance to heal 1% of the damage dealt as Life";
+				mes "Adds a 5% * Refine Chance to heal 1% of the damage dealt as Life.";
 				break;
 			case 30103:
 			case 30104:
 				mes "This option will add the Flamestrike upgrade.";
 				mes "";
 				mes "Flamestrike";
-				mes "Adds a 1.5% * Refine chance to autocast Fire Bolt Level Refine/3+1 when attacking.";
+				mes "Adds a 1.5% * Refine chance to autocast Fire Bolt Level Refine/4 + 2 when attacking.";
 				mes "Increases the damage of Firebolt by 5% * Refine";
 				break;
 			case 30105:
 				mes "This option will add the Froststrike upgrade.";
 				mes "";
 				mes "Froststrike";
-				mes "Adds a 1.5% * Refine chance to autocast Cold Bolt Level Refine/3+1 when attacking.";
+				mes "Adds a 1.5% * Refine chance to autocast Cold Bolt Level Refine/4 + 2 when attacking.";
 				mes "Increases the damage of Coldbolt by 5% * Refine";
 				break;
 			case 30106:
 				mes "This option will add the Stormstrike upgrade.";
 				mes "";
 				mes "Stormstrike";
-				mes "Adds a 1.5% * Refine chance to autocast Lightning Bolt Level Refine/3+1 when attacking.";
+				mes "Adds a 1.5% * Refine chance to autocast Lightning Bolt Level Refine/4 + 2 when attacking.";
 				mes "Increases the damage of Lightningbolt by 5% * Refine";
 				break;
 			case 30107:
 				mes "This option will add the Terrastrike upgrade.";
 				mes "";
 				mes "Terrastrike";
-				mes "Adds a 1.5% * Refine chance to autocast Earth Spike Level Refine/3+1 when attacking.";
+				mes "Adds a 1.5% * Refine chance to autocast Earth Spike Level Refine/4 + 2 when attacking.";
 				mes "Increases the damage of Lightningbolt by 5% * Refine";
 				break;
 			case 30108:
