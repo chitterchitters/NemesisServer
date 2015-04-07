@@ -15,6 +15,7 @@ prontera,146,170,5	script	Fallen Angel#mal2	4_F_VALKYRIE,{
 
 function modifieralreadyexists; function finished; function generateitem; function isstatmaxedout; function isnotenoughzeny; function isnotenoughitem;
 function getSTRupgrade; function getAGIupgrade; function getVITupgrade; function getINTupgrade; function getDEXupgrade; function getLUKupgrade;
+function getUPPERupgrade;
 
 function modifieralreadyexists {
 		mes "[Fallen Angel]";
@@ -834,6 +835,102 @@ function getLUKupgrade {
 						return 0;
 				}
 }
+
+function getUPPERupgrade (
+		next;
+		mes "[Fallen Angel]";
+		switch(getarg(0)) {
+			case 30100:
+				mes "This option will add the Rejuvenation upgrade.";
+				mes "";
+				mes "Rejuvenation";
+				mes "Increases Healing done by 5% per Refine.";
+				break;
+			case 30101:
+				mes "This option will add the Rewarded Faith upgrade.";
+				mes "";
+				mes "Rewarded Faith";
+				mes "Increases Healing received by 2% per Refine.";
+				break;
+			case 30102:
+				mes "This option will add the Vampiric Aura upgrade.";
+				mes "";
+				mes "Vampiric Aura";
+				mes "Adds a 5% * Refine Chance to heal 1% of the damage dealt as Life";
+				break;
+			case 30103:
+			case 30104:
+				mes "This option will add the Flamestrike upgrade.";
+				mes "";
+				mes "Flamestrike";
+				mes "Adds a 1.5% * Refine chance to autocast Fire Bolt Level Refine/3+1 when attacking.";
+				mes "Increases the damage of Firebolt by 5% * Refine";
+				break;
+			case 30105:
+				mes "This option will add the Froststrike upgrade.";
+				mes "";
+				mes "Froststrike";
+				mes "Adds a 1.5% * Refine chance to autocast Cold Bolt Level Refine/3+1 when attacking.";
+				mes "Increases the damage of Coldbolt by 5% * Refine";
+				break;
+			case 30106:
+				mes "This option will add the Stormstrike upgrade.";
+				mes "";
+				mes "Stormstrike";
+				mes "Adds a 1.5% * Refine chance to autocast Lightning Bolt Level Refine/3+1 when attacking.";
+				mes "Increases the damage of Lightningbolt by 5% * Refine";
+				break;
+			case 30107:
+				mes "This option will add the Terrastrike upgrade.";
+				mes "";
+				mes "Terrastrike";
+				mes "Adds a 1.5% * Refine chance to autocast Earth Spike Level Refine/3+1 when attacking.";
+				mes "Increases the damage of Lightningbolt by 5% * Refine";
+				break;
+			case 30108:
+				mes "This option will add the Divine Punishment upgrade.";
+				mes "";
+				mes "Divine Punishment";
+				mes "Adds a 2% * Refine chance to autocast Lex Divina Level 1 when attacking.";
+				break;
+			case 30109:
+				mes "This option will add the Booster Packer upgrade.";
+				mes "";
+				mes "Booster Packer";
+				mes "Adds a 0.01% * Refine chance to drop an Old Card Album when defeating enemies.";
+				mes "Adds a 0.01% chance to drop a Mystical Card Album when defeating enemies.";
+				break;
+			case 30110:
+				mes "This option will add the Box Stacker upgrade.";
+				mes "";
+				mes "Box Stacker";
+				mes "Adds a 0.01% * Refine chance to drop an Old Purple Box when defeating enemies.";
+				mes "Adds a 0.01% chance to drop an Old Golden Box when defeating enemies.";
+				break;
+			case 30111:
+				mes "This option will add the Bonfire Summoner upgrade.";
+				mes "";
+				mes "Bonfire Summoner";
+				mes "Adds a 0.01% * Refine chance to drop a Bloody Branch when defeating enemies.";
+				mes "Adds a 0.01% chance to drop a Nemesis Branch when defeating enemies.";
+				break;
+			case 30112:
+				mes "This option will add the Zeny Magnet upgrade.";
+				mes "";
+				mes "Zeny Magnet";
+				mes "Enemies drop 1 ~ (Enemy Level * Refine * 10) Zeny when slain";
+				break;
+		}
+		
+		mes "";
+		mes "Would you like to upgrade now?";
+				switch (select("Yes:No")) {
+					case 1:
+						return 1;
+					case 2:
+						return 0;
+				}
+)
 	disable_items;
 	
 	if (checkweight(1201,1) == 0) {  //Checks to see if you have too many items
@@ -853,9 +950,212 @@ function getLUKupgrade {
 	next;
 	switch(select("Enchant Upper Headgear:Enchant Middle Headgear:Enchant Lower Headgear")) {  //Initial Menu, Chooses which headgear slot to modify
 		case 1:
+		
+			if (getequipisequiped(1) == 0) {  // If you are not equipped with an item in the lower headgear slot.
+				mes "[Fallen Angel]";
+				mes "You are not equipped with a Lower headgear.  Please equip one and try again.";
+				close;
+			}
+			
+			@eqitemid = getequipid(1);
+			@eqrefine = getequiprefinerycnt(1);
+			@card0 = getequipcardid(1,0);
+			@card1 = getequipcardid(1,1);
+			@card2 = getequipcardid(1,2);
+			@card3 = getequipcardid(1,3);
+			
 			mes "[Fallen Angel]";
-			mes "This option is not ready yet.";
+			mes "Which slot would you like to upgrade?";
+			switch(select("Slot 0 - "+getitemname(@card0)+":Slot 1 - "+getitemname(@card1)+":Slot 2 - "+getitemname(@card2)+":Slot 3 - "+getitemname(@card3))) { //Sets which slot is being worked on and which is not for the section below
+				case 1:
+					@slotselected = 0;
+					@sns1 = 1;
+					@sns2 = 2;
+					@sns3 = 3;
+					break;
+				case 2:
+					@slotselected = 1;
+					@sns1 = 0;
+					@sns2 = 1;
+					@sns3 = 2;
+					break;
+				case 3:
+					@slotselected = 2;
+					@sns1 = 0;
+					@sns2 = 1;
+					@sns3 = 3;
+					break;
+				case 4:
+					@slotselected = 3;
+					@sns1 = 0;
+					@sns2 = 1;
+					@sns3 = 2;
+					break;
+			}
+			
+			if (getitemslots(getequipid(1)) > 0 && @slotselected == 0) {  //Checks to see if the item has card slots when choosing Slot 0 (The first card slot) (Helmets either have 0 or 1 card slot, not supported to check specific amounts of slots or positions)  This will only check the first slot where a slot would be.
+				mes "[Fallen Angel]";
+				mes "This item has a card slot and a modification cannot be placed in this slot";
+				close;
+			}
+			
+			if (getequipcardid(1,@slotselected) != 0) {
+				mes "[Fallen Angel]";
+				mes "This slot already has an upgrade in it and cannot be changed or upgraded.";
+				close;
+			}
+			
+			mes "[Fallen Angel]";
+			mes "The following modifications are allowed for Lower headgears.";
+			mes "Which Modification would you like to add in this slot?";
+				
+			switch(select("Rejuvenation:Rewarded Faith:Vampiric Aura:Flamestrike:Froststrike:Stormstrike:Terrastrike:Divine Punishment:Album Magnet:Box Magnet:Branch Magnet:Zeny Magnet")) {  //These check to see if the socket is within the itemID range of the select modifiers, then explains the modifier, asks the player if they want it, then gives it to them if they do.
+				case 1: // Rejuvenation
+					if (getequipcardid(1,@sns1) == 30100 || getequipcardid(1,@sns2) == 30100 || getequipcardid(1,@sns3) == 30100) {  //Checks to see if another slot already has this kind of modification
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30100)) {
+						generateitem(@slotselected,30100,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+				case 2: //Rewarded Faith
+					if (getequipcardid(1,@sns1) == 30101 || getequipcardid(1,@sns2) == 30101 || getequipcardid(1,@sns3) == 30101) {  //Checks to see if another slot already has this kind of modification
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30101)) {
+						generateitem(@slotselected,30101,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+				
+				case 3: //Vampiric Aura
+					if (getequipcardid(1,@sns1) == 30102 || getequipcardid(1,@sns2) == 30102 || getequipcardid(1,@sns3) == 30102) {  //Checks to see if another slot already has this kind of modification
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30102)) {
+						generateitem(@slotselected,30102,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+				
+				case 4: //Flamestrike
+				if (getequipcardid(1,@sns1) == 30104 || getequipcardid(1,@sns2) == 30104 || getequipcardid(1,@sns3) == 30104) {
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30104)) {
+						generateitem(@slotselected,30104,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+				
+				case 5: //Froststrike
+					if (getequipcardid(1,@sns1) == 30105 || getequipcardid(1,@sns2) == 30105 || getequipcardid(1,@sns3) == 30105) {
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30105)) {
+						generateitem(@slotselected,30105,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+				
+				case 6: //Stormstrike
+					if (getequipcardid(1,@sns1) == 30106 || getequipcardid(1,@sns2) == 30106 || getequipcardid(1,@sns3) == 30106) {
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30106)) {
+						generateitem(@slotselected,30106,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+				
+				case 7: //Terrastrike
+					if (getequipcardid(1,@sns1) == 30107 || getequipcardid(1,@sns2) == 30107 || getequipcardid(1,@sns3) == 30107) {
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30107)) {
+						generateitem(@slotselected,30107,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+				
+				case 8: //Divine Punishment
+					if (getequipcardid(1,@sns1) == 30108 || getequipcardid(1,@sns2) == 30108 || getequipcardid(1,@sns3) == 30108) {
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30108)) {
+						generateitem(@slotselected,30108,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+				
+				case 9: //Booster Packer
+					if (getequipcardid(1,@sns1) == 30109 || getequipcardid(1,@sns2) == 30109 || getequipcardid(1,@sns3) == 30109) {
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30109)) {
+						generateitem(@slotselected,30109,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+				
+				case 10: //Box Stacker
+					if (getequipcardid(1,@sns1) == 30110 || getequipcardid(1,@sns2) == 30110 || getequipcardid(1,@sns3) == 30110) {
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30110)) {
+						generateitem(@slotselected,30110,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+				
+				case 11: //Bonfire Summoner
+					if (getequipcardid(1,@sns1) == 30111 || getequipcardid(1,@sns2) == 30111 || getequipcardid(1,@sns3) == 30111) {
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30111)) {
+						generateitem(@slotselected,30111,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+				
+				case 12: //Zeny Magnet
+					if (getequipcardid(1,@sns1) == 30112 || getequipcardid(1,@sns2) == 30112 || getequipcardid(1,@sns3) == 30112) {
+						modifieralreadyexists;
+					}
+					
+					if (getUPPERupgrade(30112)) {
+						generateitem(@slotselected,30112,@eqitemid,@eqrefine,@card0, @card1, @card2, @card3, 1);
+						finished;
+					}
+					close;
+					break;
+			}
 			close;
+			break;
+			
 		case 2:
 			mes "[Fallen Angel]";
 			mes "This option is not ready yet.";
