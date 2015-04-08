@@ -921,7 +921,7 @@ function getUPPERupgrade {
 				mes "Enemies drop 1 ~ (Enemy Level * Refine * 10) Zeny when slain";
 				break;
 		}
-}
+
 		
 		mes "";
 		mes "Would you like to upgrade now?";
@@ -931,7 +931,8 @@ function getUPPERupgrade {
 					case 2:
 						return 0;
 				}
-)
+}
+
 	disable_items;
 	
 	if (checkweight(1201,1) == 0) {  //Checks to see if you have too many items
