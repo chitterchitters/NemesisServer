@@ -891,7 +891,7 @@ function getUPPERupgrade {
 				mes "This option will add the Divine Punishment upgrade.";
 				mes "";
 				mes "Divine Punishment";
-				mes "Adds a 2% * Refine chance to autocast Lex Divina Level 1 when attacking.";
+				mes "Adds a 2% * Refine chance to autocast Lex Aeterna Level 1 when attacking.";
 				break;
 			case 30109:
 				mes "This option will add the Booster Packer upgrade.";
