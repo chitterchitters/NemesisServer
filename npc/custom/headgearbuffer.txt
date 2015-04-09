@@ -897,28 +897,28 @@ function getUPPERupgrade {
 				mes "This option will add the Booster Packer upgrade.";
 				mes "";
 				mes "Booster Packer";
-				mes "Adds a 0.01% * Refine chance to drop an Old Card Album when defeating enemies.";
-				mes "Adds a 0.01% chance to drop a Mystical Card Album when defeating enemies.";
+				mes "Adds a chance to drop an Album Pouch when defeating enemies.";
+				mes "The chance increases with the refine rate.";
 				break;
 			case 30110:
 				mes "This option will add the Box Stacker upgrade.";
 				mes "";
 				mes "Box Stacker";
-				mes "Adds a 0.01% * Refine chance to drop an Old Purple Box when defeating enemies.";
-				mes "Adds a 0.01% chance to drop an Old Golden Box when defeating enemies.";
+				mes "Adds a chance to drop an Box Pouch when defeating enemies.";
+				mes "The chance increases with the refine rate.";
 				break;
 			case 30111:
 				mes "This option will add the Bonfire Summoner upgrade.";
 				mes "";
 				mes "Bonfire Summoner";
-				mes "Adds a 0.01% * Refine chance to drop a Bloody Branch when defeating enemies.";
-				mes "Adds a 0.01% chance to drop a Nemesis Branch when defeating enemies.";
+				mes "Adds a chance to drop a Branch Pouch when defeating enemies.";
+				mes "The chance increases with the refine rate.";
 				break;
 			case 30112:
 				mes "This option will add the Zeny Magnet upgrade.";
 				mes "";
 				mes "Zeny Magnet";
-				mes "Enemies drop 1 ~ (Enemy Level * Refine * 10) Zeny when slain";
+				mes "Enemies drop 1 ~ (Enemy Level * Refine * 10) additional Zeny when slain";
 				break;
 		}
 
