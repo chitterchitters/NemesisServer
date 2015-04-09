@@ -4146,7 +4146,8 @@ void status_calc_misc(struct block_list *bl, struct status_data *st, int level) 
 	if ( bl->type == BL_HOM ) {
 		st->def2 = status_get_homvit(bl) + status_get_homagi(bl) / 2;
 		st->mdef2 = (status_get_homvit(bl) + status_get_homint(bl)) / 2;
-		st->def += status_get_homvit(bl) + level / 2;
+		//st->def += status_get_homvit(bl) + level / 2;
+		st->def = status_get_homvit(bl) + level / 2;
 		st->mdef = (int)(((float)status_get_homvit(bl) + level) / 4 + (float)status_get_homint(bl) / 2);
 		st->hit = level + st->dex + 150;
 		st->flee = level + status_get_homagi(bl);

@@ -8362,11 +8362,11 @@ void clif_charnameack (int fd, struct block_list *bl)
 					char mobhp[50], *str_p = mobhp;
 					WBUFW(buf, 0) = cmd = 0x195;
 					if( battle_config.show_mob_info&4 )
-						str_p += sprintf(str_p, "Lv. %d | ", md->level);
+						str_p += sprintf(str_p, "Lv.%d | ", md->level);
 					if( battle_config.show_mob_info&1 )
-						str_p += sprintf(str_p, "HP: %u/%u | ", md->status.hp, md->status.max_hp);
+						str_p += sprintf(str_p, "HP: %u ", md->status.hp);
 					if( battle_config.show_mob_info&2 )
-						str_p += sprintf(str_p, "HP: %u%% | ", get_percentage(md->status.hp, md->status.max_hp));
+						str_p += sprintf(str_p, "(%u%)", get_percentage(md->status.hp, md->status.max_hp));
 					//Even thought mobhp ain't a name, we send it as one so the client
 					//can parse it. [Skotlex]
 					if( str_p != mobhp )
