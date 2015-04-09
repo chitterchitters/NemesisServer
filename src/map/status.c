@@ -1825,10 +1825,11 @@ int status_check_skilluse(struct block_list *src, struct block_list *target, uin
 				return 1;
 			return 0;
 		case BL_HOM:
+			if( target->type == BL_HOM && skill_id && skill->get_inf(skill_id)&INF_SUPPORT_SKILL )
+				return 1; // Can't use support skills on Homunculus (only Master/Self)
+			return 0;
 		case BL_MER:
 		case BL_ELEM:
-			if( target->type == BL_HOM && skill_id && battle_config.hom_setting&0x1 && skill->get_inf(skill_id)&INF_SUPPORT_SKILL && battle->get_master(target) != src )
-				return 0; // Can't use support skills on Homunculus (only Master/Self)
 			if( target->type == BL_MER && (skill_id == PR_ASPERSIO || (skill_id >= SA_FLAMELAUNCHER && skill_id <= SA_SEISMICWEAPON)) && battle->get_master(target) != src )
 				return 0; // Can't use Weapon endow skills on Mercenary (only Master)
 			if( skill_id == AM_POTIONPITCHER && ( target->type == BL_MER || target->type == BL_ELEM) )
