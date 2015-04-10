@@ -11,7 +11,6 @@
 1650,Sniper Shecil,1000000
 1651,High Wizard Katrinn,1000000
 2022,Nidhoggr's Shadow,500000
-2075,Ragunta,250000
 2131,Lost Dragon,1000000
 2156,Leak,1000000
 2165,Gold Queen Scaraba,500000
@@ -31,5 +30,3 @@
 2341,RWC 2011 Boss,250000
 2362,Nightmare Amon Ra,500000
 2475,Root of Corruption,125000
-2476,Amdarias,125000
-
