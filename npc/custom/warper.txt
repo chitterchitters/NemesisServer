@@ -242,7 +242,8 @@ menu	"Abyss Lakes",D1, "Amatsu Dungeon",D2, "Anthell",D3,
 	"Nidhogg's Dungeon",D27, "Odin Temple",D28, "Orc Dungeon",D29,
 	"Payon Dungeon",D30, "Pyramids",D31, "Rachel Sanctuary",D32,
 	"Scaraba Hole",D33, "Sphinx",D34, "Sunken Ship",D35, "Thanatos Tower",D36,
-	"Thor Volcano",D37, "Toy Factory",D38, "Turtle Dungeon",D39, "Umbala Dungeon",D40;
+	"Thor Volcano",D37, "Toy Factory",D38, "Turtle Dungeon",D39, "Umbala Dungeon",D40,
+	"Malaya Bangungot Hospital",D41, "Bifrost Tower",D42;
 
 D1: setarray @c[2],261,272,275,270,116,27;
 	Disp("Abyss Lakes",1,3); Pick("abyss_");
@@ -309,7 +310,7 @@ D30: setarray @c[0],21,183,19,33,19,63,155,159,201,204;
 	Disp("Payon Dungeon",1,5); Pick("pay_dun",1);
 D31: setarray @c[2],192,9,10,192,100,92,181,11,94,96,192,8;
 	Disp("Pyramids 1:Pyramids 2:Pyramids 3:Pyramids 4:Basement 1:Basement 2"); Pick("moc_pryd");
-D32: setarray @c[2],140,11,32,21,4,149,204,218,150,9;
+D32: setarray @c[2],140,11,32,21,10,149,204,218,150,9;
 	Disp("Rachel Sanctuary",1,5); Pick("ra_san");
 D33: setarray @c[2],364,44,101,141,101,141;
 	Disp("Scaraba Hole",1,3); Pick("dic_dun");
@@ -328,6 +329,10 @@ D39: setarray @c[2],154,49,148,261,132,189,100,192;
 D40: setarray @c[2],42,31,48,30,204,78;
 	Disp("Carpenter's Shop in the Tree:Passage to a Foreign World:Hvergermil's Fountain");
 	Pick("","um_dun01","um_dun02","yggdrasil01");
+D41: setarray @c[2],35,111;
+	Disp("Malaya Bangungot Hospital Floor",1,1); Pick("ma_dun");
+D42: setarray @c[2],60,16,61,85,49,16;
+	Disp("Bifrost Tower",1,3); Pick("ecl_tdun");
 
 // --------------------------------------------------
 	Castles:
